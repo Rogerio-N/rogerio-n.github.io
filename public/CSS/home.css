@@ -1,0 +1,454 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: #E3FDFF;
+    margin: 0;
+}
+
+header{
+    height: fit-content;
+    display: flex;
+    justify-content: space-around;
+}
+
+#Title-text{
+    margin-top:2%;
+}
+
+#Title-text h1{
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+#Title-text p{
+    color: #616161;
+}
+
+#img-container{
+    width: 20%;
+}
+
+#logo-img {
+    width: 60%;
+}
+
+#Nav-Top-Bar{
+    background-color: #4f6f8c;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#nav-bar ul li{
+    color: white;
+    display: inline-flex;
+    margin-left: 10% ;
+}
+
+#nav-bar ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+}
+
+#nav-bar ul li a:hover{
+    color: rgb(214, 214, 214);
+}
+
+#info-displayer{
+    display: none;
+}
+
+#Close-profile-btn{
+    background-color: #FFD363;
+    border: none;
+    color: #000;
+}
+
+#Display-aligner{
+    display: flex;
+    justify-content: space-between;
+}
+
+#Center-page{
+    margin-left:5%;
+    width: 60%;
+}
+
+#Home{
+    background-color: #7A9AB8;
+    width: 100%;
+    height: fit-content;
+    border-radius: 15px;
+    margin-bottom: 10%;
+    border-radius: 15px;
+}
+
+#Center-title{
+    background-color: #4f6f8c;
+    padding: 1px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#Center-title h2{
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-weight: normal;
+    font-size: 40px;
+}
+
+#Home-nav-btns{
+    display: flex;
+    justify-content: space-around;
+}
+
+.Nav-btns{
+    margin: 20px 0;
+    background-color: #FFD363;
+    border:none;
+    height: 50px;
+    border-radius: 7px;
+    font-size: 26px;
+}
+
+.Nav-btns:hover{
+    background-color: #d1ad52;
+    cursor: pointer;
+}
+
+#History{
+    background-color: #7A9AB8;
+    width: 100%;
+    height: fit-content;
+    border-radius: 15px;
+    margin-bottom: 10%;
+    border-radius: 15px; 
+}
+
+#History-title{
+    background-color: #4f6f8c;
+    padding: 1px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#History-title h2{
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-weight: normal;
+    font-size: 40px;
+}
+
+#History-table{
+    color:white;
+    width: 100%;
+}
+
+#History-table thead tr th{
+    font-weight: normal;
+    text-align: center;
+}
+
+#History-table td{
+    text-align: center;
+}
+
+#Complaint-counter{
+    display: flex;
+    padding-left: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    color: white;
+    border-top: 1px solid #FFD363;
+}
+
+#Complaint-counter p{
+    margin: 0 10px;
+}
+
+#Right-side-align{
+    margin-right: 5%;
+    width: 15%;
+}
+
+#Login{
+    width: 100%;
+    background-color: #7A9AB8;
+    border-radius: 15px;
+    height: fit-content;
+}
+
+#Login #Login-title{
+    background-color: #4f6f8c;
+    padding: 1px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#Login-title h3{
+    font-weight: normal;
+    font-size: 30px;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+#Login form{
+    padding: 15px;
+}
+
+#Name{
+    width: 100%;
+}
+
+.Login-label{
+    color: white;
+    margin: 0;
+    font-size:25px;
+}
+
+#Name input{
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 15px;
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+
+    border:none;
+    border-radius: 7px;
+}
+
+#Name input:focus{
+    outline: none;
+}
+
+#E-mail{
+    margin-top: 20px;
+}
+
+#Email-text{
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 15px;
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+
+    border:none;
+    border-radius: 7px;
+}
+
+#Email-text:focus{
+    outline: none;
+}
+
+
+#Complaint-global-counter{
+    margin: 20px 0px;
+}
+
+#Control-btn{
+    text-align: center;
+}
+
+#Logout-btn{
+    width: 50%;
+    height: 40px;
+    border-radius: 7px;
+    border:none;
+    background-color: #FFD363;
+    font-size: 15px;
+}
+
+#Logout-btn:hover{
+    cursor: pointer;
+    background-color: #d1ad52;
+}
+
+#Protocol{
+    margin: 40px 0px;
+    background-color: #7A9AB8;
+    width: 100%;
+    border-radius: 15px;
+}
+
+#Protocol #Protocol-title{
+    background-color: #4f6f8c;
+    padding: 1px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#Protocol-title h3{
+    font-size: 30px;
+    font-weight: normal;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+#Protocol form{
+    padding: 15px;
+}
+
+#Protocol-label{
+    font-size:30px;
+    
+    color: white;
+    margin-bottom: 0px;
+}
+
+#Protocol-text-inpt{
+    box-sizing: border-box;
+    width: 73%;
+    height: 40px;
+    padding: 5px;
+    font-size: 15px;
+
+    border:none;
+    border-radius: 7px;
+}
+
+#Protocol-btn{
+    height: 40px;
+    border-radius: 7px;
+    border:none;
+    background-color: #FFD363;
+    font-size: 17px;
+}
+
+#Protocol-btn:hover{
+    cursor: pointer;
+    background-color: #d1ad52;
+}
+
+#Protocol-desc{
+    color: white;
+    font-size: 18px;
+}
+
+@media screen and (max-width:720px) {
+    #Title-text h1{
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    #Title-text p{
+        font-size: 15px;
+        width: 150px;
+    }
+
+    #img-container{
+        width: 30%;
+    }
+
+    #logo-img {
+        width: 100%;
+    }
+
+    #Nav-Top-Bar{
+        width: 100%;
+        height: 45px;
+    }
+
+    #nav-bar ul{
+        padding: 0px;
+    }
+
+    #nav-bar ul li{
+        margin-left: 2%;
+    }
+
+    #nav-bar ul li a{
+        font-size: 13px;
+    }
+
+    #info-displayer{
+        display: block;
+        background-color: transparent;
+        border: none;
+        font-size: 13px;
+        padding: 0;
+    }
+
+    #Login-title{
+        height: 40px;
+    }
+
+    #Login-title h3{
+        font: 20px;
+    }
+
+    .Login-label{
+        font-size: 15px;
+    }
+
+    #Name input{
+        font-size: 13px;
+        height: 25px;
+    }
+
+    #Email-text{
+        font-size: 13px;
+        height: 25px;
+    }
+    
+    #Right-side-align{
+        display: none;
+        position: fixed;
+        overflow: auto;
+    }
+
+    #Display-aligner{
+        display: block;
+        width: 100%;
+    }
+
+    #Center-page{
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    #Center-title{
+        height: 20px;
+    }
+
+    #Center-title h2{
+        font-size: 15px;
+    }
+
+    .Nav-btns{
+        font-size: 13px;
+        height: 20px;
+    }
+
+    #History-title{
+        height: 20px;
+    }
+
+    #History-title h2{
+        font-size: 15px;
+    }
+
+    #History-table thead tr{
+        width: fit-content;
+    }
+
+    #History-table thead tr th{
+        font-size: 12px;
+    }
+
+    #History-table td{
+        font-size: 10px;
+    }
+
+    #Complaint-counter{
+        font-size: 10px;
+    }
+
+}

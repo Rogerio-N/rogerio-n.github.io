@@ -1,0 +1,260 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: #E3FDFF;
+    margin: 0;
+}
+
+header{
+    height: fit-content;
+    display: flex;
+    justify-content: space-around;
+}
+
+#Title-text{
+    margin-top:2%;
+}
+
+#Title-text h1{
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+#Title-text p{
+    color: #616161;
+}
+
+#img-container{
+    width: 20%;
+}
+
+#logo-img {
+    width: 60%;
+}
+
+#Nav-Top-Bar{
+    background-color: #4f6f8c;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#nav-bar ul li{
+    color: white;
+    display: inline-flex;
+    margin-left: 10% ;
+}
+
+#nav-bar ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+}
+
+#nav-bar ul li a:hover{
+    color: rgb(214, 214, 214);
+}
+
+#Display-aligner{
+    display: flex;
+    justify-content: space-between;
+}
+
+#Center-page{
+    background-color: #7A9AB8;
+    margin-left:5%;
+    width: 60%;
+    height: fit-content;
+    border-radius: 15px;
+    margin-bottom: 10%;
+}
+
+
+#Center-title{
+    background-color: #4f6f8c;
+    padding: 1px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#Center-title h2{
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-weight: normal;
+    font-size: 40px;
+}
+
+#Theme-display{
+    padding: 20px;
+    background-color: #5C83A7;
+    border-radius: 15px;
+    margin: 20px;
+}
+
+.Question-label{
+    color: white;
+}
+
+.Question-answer{
+    color: rgb(224, 224, 224);
+    padding: 10px;
+    background-color: #6B8EAF;
+    border-radius: 10px;
+}
+
+#Right-side-align{
+    margin-right: 5%;
+    width: 15%;
+}
+
+#Login{
+    width: 100%;
+    background-color: #7A9AB8;
+    border-radius: 15px;
+}
+
+#Login #Login-title{
+    background-color: #4f6f8c;
+    padding: 1px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#Login-title h3{
+    font-weight: normal;
+    font-size: 30px;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+#Login form{
+    padding: 15px;
+}
+
+#E-mail{
+    width: 100%;
+}
+
+.Login-label{
+    color: white;
+    margin: 0;
+    font-size:30px;
+}
+
+#E-mail input{
+    box-sizing: border-box;
+    font-size: 15px;
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+
+    border:none;
+    border-radius: 7px;
+}
+
+#Password{
+    margin-top: 20px;
+}
+
+#Password-text{
+    box-sizing: border-box;
+    font-size: 15px;
+    width: 77%;
+    height: 40px;
+    padding: 5px;
+
+    border:none;
+    border-radius: 7px;
+}
+
+#Login-btn{
+    width: 20%;
+    height: 40px;
+    border-radius: 7px;
+    border:none;
+    background-color: #FFD363;
+    font-size: 15px;
+}
+
+#Login-btn:hover{
+    cursor: pointer;
+    background-color: #d1ad52;
+}
+
+#Register-p{
+    font-size: 20px;
+}
+
+#Register-p a{
+    color: #b1fffa;
+    
+}
+
+#Register-p a:hover{
+    color: #94d4d1;
+}
+
+#Protocol{
+    margin: 40px 0px;
+    background-color: #7A9AB8;
+    width: 100%;
+    border-radius: 15px;
+}
+
+#Protocol #Protocol-title{
+    background-color: #4f6f8c;
+    padding: 1px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#Protocol-title h3{
+    font-size: 30px;
+    font-weight: normal;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+#Protocol form{
+    padding: 15px;
+}
+
+#Protocol-label{
+    font-size:30px;
+    
+    color: white;
+    margin-bottom: 0px;
+}
+
+#Protocol-text-inpt{
+    box-sizing: border-box;
+    width: 73%;
+    height: 40px;
+    padding: 5px;
+    font-size: 15px;
+
+    border:none;
+    border-radius: 7px;
+}
+
+#Protocol-btn{
+    height: 40px;
+    border-radius: 7px;
+    border:none;
+    background-color: #FFD363;
+    font-size: 17px;
+}
+
+#Protocol-btn:hover{
+    cursor: pointer;
+    background-color: #d1ad52;
+}
+
+#Protocol-desc{
+    color: white;
+    font-size: 18px;
+}

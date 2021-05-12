@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obras publicas</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./CSS/FAQ.css">
+
+</head>
+<body>
+    
+    <!--Para melhor visualização é recomendada uma tela FHD (1920x1080)-->
+
+    <header>
+        <div id="Title-text">
+            <h1>Obras públicas</h1>
+            <p>Sistema que conecta o cidadão a prefeitura</p>
+        </div>
+        <div id="img-container">
+            <img id="logo-img" src="./img/black-op.png" alt="">
+        </div>
+    </header>
+
+    <main>
+        <div id="Nav-Top-Bar">
+            <nav id="nav-bar">
+                <ul>
+                    <li><a href="home.html">Inicio</a></li>
+                    <li><a href="FAQ.html">Perguntas frequentes</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="Display-aligner">
+
+            <div id="Center-page">
+                <div id="Center-title">
+                    <h2>Temas de denúncia disponível</h2>
+                </div>
+
+                <div id="Theme-display">
+
+                    <div class="Question">
+                        <p class="Question-label">Posso buscar denuncias pelo numero de protocolo ?</p>
+                        <div class="Question-answer">
+                            <p class="Answer">Sim. Basta estar logado no site para fazer essa pesquisa</p>
+                        </div>
+                    </div>
+                    <div class="Question">
+                        <p class="Question-label">Como eu posso fazer a denuncia ?</p>
+                        <div class="Question-answer">
+                            <p class="Answer">Precisa estar logado na conta, ir no seu perfil e criar denúncia. </p>
+                        </div>
+                    </div>  
+                    
+                    <div class="Question">
+                        <p class="Question-label">Consigo verificar as denuncias que eu fiz?</p>
+                        <div class="Question-answer">
+                            <p class="Answer">Sim. Basta entrar no seu perfil e verificar na parte inferior da pagina “Minhas Denúncias”. </p>
+                        </div>
+                    </div>  
+
+                    <div class="Question">
+                        <p class="Question-label">Consigo alterar meus dados?</p>
+                        <div class="Question-answer">
+                            <p class="Answer">Sim. Basta entrar na sua conta e clicar em alterar dados na aba Home,no meio da tela</p>
+                        </div>
+                    </div>  
+                    
+                </div>
+                
+            </div>
+
+            <div id="Right-side-align">
+                <div id="Login">
+                    <div id="Login-title">
+                        <h3>Login</h3>
+                    </div>
+                    
+                    <form>
+                        <div id="E-mail">
+                            <p class="Login-label">E-mail:</p>
+                            <input type="email" placeholder="Insira seu e-mail">
+                        </div>
+                        <div id="Password">
+                            <p class="Login-label">Senha:</p>
+                            <div id="Password-inputs">
+                                <input id="Password-text" type="password" placeholder="Insira sua senha">
+                                <input type="button" value="Entrar" id="Login-btn">
+                            </div>
+                        </div>
+
+                        <p id="Register-p"><a href="cadastro.html" >Fazer cadastro</a></p>
+
+                    </form>
+                    
+                </div>
+    
+                <div id="Protocol">
+                    <div id="Protocol-title">
+                        <h3>Protocolo</h3>
+                    </div>
+
+                    <form>
+                        <p id="Protocol-label">Protocolo:</p>
+                        <div id="Protocol-inputs">
+                            <input type="number" id="Protocol-text-inpt" placeholder="Numero do protocolo">
+                            <input type="button" value="Buscar" id="Protocol-btn">
+                        </div>
+
+                        <p id="Protocol-desc">Para fazer a busca da denuncia pelo ptorocolo é necessário estar logado</p>
+
+                    </form>
+                </div>
+            </div>    
+            
+        </div>
+
+    </main>
+
+</body>
+</html>

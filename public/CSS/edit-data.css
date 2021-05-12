@@ -1,0 +1,265 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: #E3FDFF;
+    margin: 0;
+}
+
+header{
+    height: fit-content;
+    display: flex;
+    justify-content: space-around;
+}
+
+#Title-text{
+    margin-top:2%;
+}
+
+#Title-text h1{
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+#Title-text p{
+    color: #616161;
+}
+
+#img-container{
+    width: 20%;
+}
+
+#logo-img {
+    width: 60%;
+}
+
+#Nav-Top-Bar{
+    background-color: #4f6f8c;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#nav-bar ul li{
+    color: white;
+    display: inline-flex;
+    margin-left: 10% ;
+}
+
+#nav-bar ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+}
+
+#nav-bar ul li a:hover{
+    color: rgb(214, 214, 214);
+}
+
+#Display-aligner{
+    display: flex;
+    justify-content: space-between;
+}
+
+#Center-page{
+    background-color: #7A9AB8;
+    margin-left:5%;
+    width: 60%;
+    height: fit-content;
+    border-radius: 15px;
+    margin-bottom: 10%;
+}
+
+
+#Center-title{
+    background-color: #4f6f8c;
+    padding: 1px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#Center-title h2{
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-weight: normal;
+    font-size: 40px;
+}
+
+#Theme-display{
+    padding: 20px;
+}
+
+#name{
+    color: white;
+    font-size: 25px;
+    
+}
+
+#e-mail{
+    color:white;
+    font-size: 25px;
+}
+
+#senha{
+    color: white;
+    font-size: 25px;
+}
+
+#confsenha{
+    color: white;
+    font-size: 25px;
+}
+
+
+#enviar{
+    text-align: center;
+}
+
+#bot{
+    width: 20%;
+    height: 40px;
+    border-radius: 7px;
+    border: none;
+    background-color: #FFD363;
+    font-size: 25px;
+    
+}
+
+#bot:hover{
+    background-color: #c7a652;
+    cursor: pointer;
+}
+
+
+#namee{
+    box-sizing: border-box;
+    font-size: 15px;
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    border: none;
+    border-radius: 7px;
+}
+
+#emaill{
+    box-sizing: border-box;
+    font-size: 15px;
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    border: none;
+    border-radius: 7px;
+}
+
+#senhaa{
+    box-sizing: border-box;
+    font-size: 15px;
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    border: none;
+    border-radius: 7px;
+}
+
+#confsenhaa{
+    box-sizing: border-box;
+    font-size: 15px;
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    border: none;
+    border-radius: 7px;
+}
+
+@media screen and (max-width:800px) {
+    #Title-text h1{
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    #Title-text p{
+        font-size: 15px;
+        width: 150px;
+    }
+
+    #img-container{
+        width: 30%;
+    }
+
+    #logo-img {
+        width: 100%;
+    }
+
+    #Nav-Top-Bar{
+        width: 100%;
+        height: 45px;
+    }
+
+    #nav-bar ul{
+        padding: 0px;
+    }
+
+    #nav-bar ul li{
+        margin-left: 2%;
+    }
+
+    #nav-bar ul li a{
+        font-size: 13px;
+    }
+
+    #Center-page{
+        background-color: #7A9AB8;
+        margin:0 auto;
+        width: 80%;
+        height: fit-content;
+        border-radius: 15px;
+        margin-bottom: 10%;
+    }
+
+    #Center-title h2{
+        font-size: 20px;
+    }
+
+    #name{
+        font-size: 17px;
+    }
+
+    #namee{
+        font-size: 15px;
+        height: 25px;
+    }
+
+    #e-mail{
+        font-size: 17px;
+    }
+
+    #emaill{
+        font-size: 15px;
+        height: 25px;
+    }
+
+    #senha{
+        font-size: 17px;
+    }
+
+    #senhaa{
+        font-size: 15px;
+        height: 25px;
+    }
+
+    #confsenha{
+        font-size: 17px;
+    }
+
+    #confsenhaa{
+        font-size: 15px;
+        height: 25px;
+    }
+
+    #bot{
+        width: 40%;
+        font-size: 17px;
+    }
+    
+}

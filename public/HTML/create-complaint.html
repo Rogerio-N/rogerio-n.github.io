@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obras publicas</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./CSS/create-complaint.css">
+
+</head>
+<body>
+    
+    <!--Para melhor visualização é recomendada uma tela FHD (1920x1080)-->
+
+    <header>
+        <div id="Title-text">
+            <h1>Obras públicas</h1>
+            <p>Sistema que conecta o cidadão a prefeitura</p>
+        </div>
+        <div id="img-container">    
+            <img id="logo-img" src="./img/black-op.png" alt="">
+        </div>
+    </header>
+
+    <main>
+        <div id="Nav-Top-Bar">
+            <nav id="nav-bar">
+                <ul>
+                    <li><a href="home.html">Inicio</a></li>
+                    <li><a href="FAQ.html">Perguntas frequentes</a></li>
+                    <li>
+                        <!-- Button trigger modal -->
+                        <button id="info-displayer" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Perfil
+                        </button>
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Informações pessoais</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!--Modal content here-->
+                                    <div id="Login">
+                                        <div id="Login-title">
+                                            <h3>Usuario</h3>
+                                        </div>
+                                        
+                                        <form>
+                                            <div id="Name">
+                                                <p class="Login-label">Nome:</p>
+                                                <input id="name-text" type="text" placeholder="Rogerio Nakayama Bernardo" readonly>
+                                            </div>
+                    
+                                            <div id="E-mail">
+                                                <p class="Login-label">E-mail:</p>
+                                                <input id="Email-text" type="password" placeholder="rogenakayama@gmail.com" readonly>                    
+                                            </div>
+                    
+                                            <div id="Complaint-global-counter">
+                                                <p class="Login-label">Denuncias realizadas:</p>
+                                                <input id="Email-text" type="password" placeholder="1" readonly>  
+                                            </div>                                    
+                    
+                                        </form>
+                                        
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                <a href="index.html"><button type="button" class="btn btn-secondary">Sair da conta</button></a>
+                                <button type="button" class="btn btn-primary" id="Close-profile-btn"  data-bs-dismiss="modal">Fechar perfil</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="Display-aligner">
+
+            <div id="Center-page">
+                
+                <div id="Complaint">
+                    <div id="Complaint-title">
+                        <h2>Criar denúncia</h2>
+                    </div>
+                    <form>
+                        <div id="Grid-form">
+                            <div id="Complaint-type" >
+                                <p class="Complaint-label">Tipo de denuncia:</p>
+                                <select id="Type-selector" name="Complaint-type-selector" required>
+                                    <Option>Escolha</Option>
+                                    <Option>Iluminação publica</Option>
+                                </select>
+                            </div>
+                            <div id="Adress-CEP">
+                                <p class="Complaint-label">CEP do local:</p>
+                                <input type="text" id="CEP" class="input-bar" required>
+                            </div>
+                            
+                            
+                            <div id="Adress-street">
+                                <p class="Complaint-label">Rua:</p>
+                                <input type="text" id="Street" class="input-bar" required>
+                            </div>
+                            <div id="Adress-neighborhood">
+                                <p class="Complaint-label">Bairro:</p>
+                                <input type="text" id="neighborhood" class="input-bar" required>
+                            </div>
+                            
+                            
+                            <div id="Adress-number">
+                                <p class="Complaint-label">Número do endereço:</p>
+                                <input type="number" class="input-bar" id="input-number-adress" required>
+                            </div>
+                            <div id="Complaint-foto">
+                                <p class="Complaint-label">Foto do local:</p>
+                                <input type="file" id="Foto" accept="image/*" required>
+                            </div>
+                            
+                        </div>
+
+                        <div id="Complaint-form-4">
+                            <p class="Complaint-label">Descricao:</p>
+                            <textarea name="Description" id="Complaint-description" cols="88" rows="5"></textarea>
+                        </div>
+                        
+                        <div id="Send-complaint">
+                            <input type="submit" id="Complaint-submit-btn">
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+
+            <div id="Right-side-align">
+                <div id="Login">
+                    <div id="Login-title">
+                        <h3>Usuario</h3>
+                    </div>
+                    
+                    <form>
+                        <div id="Name">
+                            <p class="Login-label">Nome:</p>
+                            <input type="text" placeholder="Rogerio Nakayama Bernardo" readonly>
+                        </div>
+
+                        <div id="E-mail">
+                            <p class="Login-label">E-mail</p>
+                            <input id="Email-text" type="password" placeholder="Insira sua senha" readonly>                    
+                        </div>
+
+                        <div id="Complaint-global-counter">
+                            <p class="Login-label">Denuncias realizadas</p>
+                            <input id="Email-text" type="password" placeholder="1" readonly>  
+                        </div>
+                        
+                        <div id="Control-btn">
+                            <a href="index.html"><input type="button" value="Sair" id="Logout-btn"></a>
+                        </div>
+                        
+
+                    </form>
+                    
+                </div>
+            </div>    
+            
+        </div>
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+</body>
+</html>
