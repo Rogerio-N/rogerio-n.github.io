@@ -1,10 +1,2 @@
-# rogerio-n.github.io
+# Initial page
 
-This repository is focused for our college project.
-
-We are using the technologies: 
-
-- HTML
-- CSS
-- JavaScript
-- Boostrap
