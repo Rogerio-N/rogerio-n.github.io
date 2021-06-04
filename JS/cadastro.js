@@ -13,7 +13,7 @@ function post(url,data){
 
 function createUser(){
     event.preventDefault();
-    let url = "http://127.0.0.1:8080/users";
+    let url = "http://192.168.25.4:8080/users";
     let email = document.getElementById("emaill").value;
     let name = document.getElementById("namee").value;
     
