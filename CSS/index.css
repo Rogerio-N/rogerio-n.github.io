@@ -96,26 +96,33 @@ header{
     grid-template-columns: repeat(4, 25%);
 }
 
-#Ilumination-img{
+.Theme{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgDiv{
     width: 50%;
-    background-color: #c4c4c4;
-    border-radius: 50%;
-    border:1px solid black;
 }
 
-#Ilumination-img img{
+.imgDiv img{
     width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid black;
 }
 
-#Ilumination-text{
+.nameDiv{
     width: fit-content;
+    
 }
 
-#Ilumination-text h3{
+.nameDiv h3{
     color: white;
     font-weight: normal;
     text-align: center;
-    margin-left: 15px;
     width: 100%;
 }
 
@@ -174,7 +181,7 @@ header{
     margin-top: 20px;
 }
 
-#Password-text{
+.Password-text{
     box-sizing: border-box;
     font-size: 15px;
     width: 100%;
@@ -349,20 +356,21 @@ header{
         margin:0 auto;
     }
 
-    #Ilumination-theme{
+    .Theme{
         margin-bottom: 10px;
     }
 
-    #Ilumination-img{
+    .imgDiv{
         margin:0 auto;
         width: 35%;
+        border-radius: 0px;
     }
 
-    #Ilumination-text{
+    .nameDiv{
         margin: 0 auto;
     }
 
-    #Ilumination-text h3{
+    .nameDiv h3{
         margin:0px;
         font-size: 13px;
     }
@@ -389,12 +397,12 @@ header{
         outline: none;
     }
 
-    #Password-text{
+    .Password-text{
         width: 100%;
         height: 25px;
     }
 
-    #Password-text:focus{
+    .Password-text:focus{
         outline: none;
     }
 
