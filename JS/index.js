@@ -54,7 +54,7 @@ Runner();
 
 function loginChecker(){
     event.preventDefault();
-    let rawData = get("http://localhost:8080/users");
+    let rawData = get("http://127.0.0.1:8080/users");
     let users = JSON.parse(rawData);
     
     let currentUserMail = document.getElementById("desktop-email").value;
