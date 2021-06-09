@@ -1,77 +1,72 @@
-function get(url){
-    let request = new XMLHttpRequest();
-    request.open("GET",url,false);
-    request.send();
-    return request.responseText;    
-}
+    function get(url){
+        let request = new XMLHttpRequest();
+        request.open("GET",url,false);
+        request.send();
+        return request.responseText;    
+    };
 
-function Runner(){
-    
-    let rawData = get("http://localhost:8080/themes");
-    let themes = JSON.parse(rawData);
-
-    let themeDisplay = document.getElementById("Theme-display")
-
-    if (themes.length == 0){
-        var empty = document.createElement("h3");
-        empty.innerHTML="Nenhuma categoria cadastrada";
-        empty.style.textAlign = "center";
-        empty.style.color = "#fff";
-
-        themeDisplay.appendChild(empty);
-    }
-
-    themes.forEach(element => {
+    function Runner(){
         
-        themeDiv = document.createElement("div");
-        themeDiv.className = "Theme";
+        let rawData = get("http://localhost:8080/themes");
+        let themes = JSON.parse(rawData);
 
-        imgDiv = document.createElement("div");
-        imgDiv.className = "imgDiv";
+        let themeDisplay = document.getElementById("Theme-display")
 
-        themeImg = document.createElement("img");
-        themeImg.src = "http://127.0.0.1:8887/"+element.photo;
+        themes.forEach(element => {
+            
+            let themeDiv = document.createElement("div");
+            themeDiv.className = "Theme";
 
-        nameDiv = document.createElement("div");
-        nameDiv.className = "nameDiv";
+            let imgDiv = document.createElement("div");
+            imgDiv.className = "imgDiv";
 
-        themeName = document.createElement("h3");
-        themeName.innerHTML = element.name;
+            let themeImg = document.createElement("img");
+            themeImg.src = "http://127.0.0.1:8887/"+element.photo;
 
-        imgDiv.appendChild(themeImg);
-        nameDiv.appendChild(themeName);
+            let nameDiv = document.createElement("div");
+            nameDiv.className = "nameDiv";
 
-        themeDiv.appendChild(imgDiv);
-        themeDiv.appendChild(nameDiv);
+            let themeName = document.createElement("h3");
+            themeName.innerHTML = element.name;
 
-        themeDisplay.appendChild(themeDiv);
+            imgDiv.appendChild(themeImg);
+            nameDiv.appendChild(themeName);
 
-    });   
+            themeDiv.appendChild(imgDiv);
+            themeDiv.appendChild(nameDiv);
 
-}
+            themeDisplay.appendChild(themeDiv);
 
-Runner();
+        });   
 
-function loginChecker(){
-    event.preventDefault();
-    let rawData = get("http://localhost:8080/users");
-    let users = JSON.parse(rawData);
+    };
+
+    Runner();
     
-    let currentUserMail = document.getElementById("desktop-email").value;
-    let currentUserPassword = document.getElementById("desktop-password").value;
+    function loginChecker(){
+        event.preventDefault();
+        let rawData = get("http://localhost:8080/users");
+        let users = JSON.parse(rawData);
+        
+        let currentUserMail = document.getElementById("desktop-email").value;
+        let currentUserPassword = document.getElementById("desktop-password").value;
+    
+        let canLogin = false;
+    
+        users.forEach(element => {
+            if(currentUserMail == element.email && currentUserPassword == element.password){
 
-    let canLogin = false;
+                sessionStorage.setItem("Name",element.name);
+                sessionStorage.setItem("Email",element.email);
 
-    users.forEach(element => {
-        if(currentUserMail == element.email && currentUserPassword == element.password){
-            canLogin = true;
+                canLogin = true;
+            }
+        });
+    
+        if(canLogin){
+            window.location.href = "./home.html";
+        }else{
+            alert("Usuário não encontrado, reensira as informações");
         }
-    });
-
-    if(canLogin){
-        window.location.href = "./home.html";
-    }else{
-        alert("Usuário não encontrado, reensira as informações");
-    }
-
-}
+    
+    };

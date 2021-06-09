@@ -1,0 +1,21 @@
+{
+  "name": "page-pi",
+  "version": "1.0.0",
+  "description": "This repository is focused for our college project.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rogerio-N/rogerio-n.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rogerio-N/rogerio-n.github.io/issues"
+  },
+  "homepage": "https://github.com/Rogerio-N/rogerio-n.github.io#readme"
+}

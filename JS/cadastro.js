@@ -3,11 +3,6 @@ function post(url,data){
     request.open("POST",url,true);
     request.setRequestHeader("Content-type", "application/json");
     request.send(JSON.stringify(data));
-
-    request.onload = function (){
-        console.log(this.responseText);
-    }
-
     return request.responseText;
 }
 
@@ -18,16 +13,29 @@ function createUser(){
     let name = document.getElementById("namee").value;
     
     let password = document.getElementById("senhaa").value;
+    let repeatPassword = document.getElementById("confsenhaa").value;
 
-    dados={
-        "email":email,
-        "password":password,
-        "name":name
-        
+    let canCreate = false;
+
+    if(password == repeatPassword){
+        canCreate = true;
+    }else{
+        canCreate = false;
     }
 
-    console.log(dados);
-
-    post(url,dados);
+    if(!canCreate){
+        alert("Verifique as informações e as insira novamente");
+    }else{
+        dados={
+            "email":email,
+            "password":password,
+            "name":name
+            
+        }
+    
+        post(url,dados);
+    
+        window.location.href = "./index.html";
+    }    
 
 }
