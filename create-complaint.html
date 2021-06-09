@@ -58,17 +58,17 @@
                                         <form>
                                             <div id="Name">
                                                 <p class="Login-label">Nome:</p>
-                                                <input id="name-text" type="text" placeholder="Rogerio Nakayama Bernardo" readonly>
+                                                <input id="Name-cellphone" type="text" placeholder="Rogerio Nakayama Bernardo" readonly>
                                             </div>
                     
                                             <div id="E-mail">
                                                 <p class="Login-label">E-mail:</p>
-                                                <input id="Email-text" type="password" placeholder="rogenakayama@gmail.com" readonly>                    
+                                                <input id="Email-cellphone" class="Email-text" type="password" placeholder="rogenakayama@gmail.com" readonly>                    
                                             </div>
                     
                                             <div id="Complaint-global-counter">
                                                 <p class="Login-label">Denuncias realizadas:</p>
-                                                <input id="Email-text" type="password" placeholder="1" readonly>  
+                                                <input class="Email-text" type="password" placeholder="1" readonly>  
                                             </div>                                    
                     
                                         </form>
@@ -95,7 +95,7 @@
                     <div id="Complaint-title">
                         <h2>Criar denúncia</h2>
                     </div>
-                    <form>
+                    <form onsubmit="createComplaint()">
                         <div id="Grid-form">
                             <div id="Complaint-type" >
                                 <p class="Complaint-label">Tipo de denuncia:</p>
@@ -153,17 +153,17 @@
                     <form>
                         <div id="Name">
                             <p class="Login-label">Nome:</p>
-                            <input type="text" placeholder="Rogerio Nakayama Bernardo" readonly>
+                            <input id="Name-desktop" type="text" placeholder="Rogerio Nakayama Bernardo" readonly>
                         </div>
 
                         <div id="E-mail">
                             <p class="Login-label">E-mail</p>
-                            <input id="Email-text" type="password" placeholder="Insira sua senha" readonly>                    
+                            <input id="Email-desktop" class="Email-text" type="password" placeholder="Insira sua senha" readonly>                    
                         </div>
 
                         <div id="Complaint-global-counter">
                             <p class="Login-label">Denuncias realizadas</p>
-                            <input id="Email-text" type="password" placeholder="1" readonly>  
+                            <input class="Email-text" type="password" placeholder="1" readonly>  
                         </div>
                         
                         <div id="Control-btn">
@@ -179,6 +179,7 @@
         </div>
 
     </main>
+    <script src="./JS/create-complaint.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
 </body>
 </html>

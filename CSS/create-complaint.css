@@ -253,7 +253,7 @@ input::-webkit-inner-spin-button {
     margin-top: 20px;
 }
 
-#Email-text{
+.Email-text{
     text-align: center;
     box-sizing: border-box;
     font-size: 15px;
@@ -265,7 +265,7 @@ input::-webkit-inner-spin-button {
     border-radius: 7px;
 }
 
-#Email-text:focus{
+.Email-text:focus{
     outline: none;
 }
 
