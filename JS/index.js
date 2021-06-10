@@ -50,18 +50,43 @@
         
         let currentUserMail = document.getElementById("desktop-email").value;
         let currentUserPassword = document.getElementById("desktop-password").value;
+
+        let currentUserMailCell = document.getElementById("desktop-email").value;
+        let currentUserPasswordCell = document.getElementById("desktop-password").value;
+        
     
         let canLogin = false;
     
         users.forEach(element => {
-            if(currentUserMail == element.email && currentUserPassword == element.password){
 
-                sessionStorage.setItem("Name",element.name);
-                sessionStorage.setItem("Email",element.email);
-                sessionStorage.setItem("Id",element.id);
+            //Verificar se o campo de email no deskto esta preenchido
+            //Caso esteja vazio, usa-se o valor dos campos de celular
+            //Caso esteja com alguma valor preenchido entra no else
+            //E pega os dados dos campos do pc
+            if(currentUserMail == " " || currentUserPassword== " "){
 
-                canLogin = true;
+                if(currentUserMailCell == element.email && currentUserPasswordCell == element.password){
+
+                    sessionStorage.setItem("Name",element.name);
+                    sessionStorage.setItem("Email",element.email);
+                    sessionStorage.setItem("Id",element.id);
+
+                    canLogin = true;
+                }
+
+            }else{
+                if(currentUserMail == element.email && currentUserPassword == element.password){
+
+                    sessionStorage.setItem("Name",element.name);
+                    sessionStorage.setItem("Email",element.email);
+                    sessionStorage.setItem("Id",element.id);
+
+                    canLogin = true;
+                }   
             }
+
+
+            
         });
     
         if(canLogin){
