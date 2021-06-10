@@ -58,6 +58,7 @@
 
                 sessionStorage.setItem("Name",element.name);
                 sessionStorage.setItem("Email",element.email);
+                sessionStorage.setItem("Id",element.id);
 
                 canLogin = true;
             }
