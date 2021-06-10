@@ -15,7 +15,7 @@ function createComplaint(){
     let url = "http://localhost:8080/complaint"
 
     let canCreate = true;
-    let haveComplaint;
+    let haveComplaint = true;
     let complaintType = document.getElementById("Type-selector").value;
 
     switch(complaintType){
@@ -36,14 +36,22 @@ function createComplaint(){
     let description = document.getElementById("Complaint-description").value;
     adressNumber = parseInt(adressNumber);
 
-    let protocol = getRndInteger(0,2000000).toString();
+    //let protocol = getRndInteger(0,2000000).toString();
     let sendDate = new Date();
-    console.log(sendDate.toISOString());
+
+    let year = sendDate.getFullYear().toString();
+    let month = (sendDate.getMonth()+1).toString();
+    let day = sendDate.getDate().toString();
+    let code = sendDate.getTime().toString().toString().substr(0,4);// getRndInteger(0,999).toString();
+
+    let protocol = year + month + day + "." + code;
+
+    console.log(protocol);
 
     const data = {
         "protocol": protocol,
         "themes": complaintType,
-        "status": "Enviada",
+        "status": "Aguardando resposta",
         "descricao": description,
         "numero": adressNumber,
         "endereco": street + ", "+  neighborhood,
@@ -51,7 +59,7 @@ function createComplaint(){
         "cep":cep
     }
 
-    if(cep == "" || street == "" || neighborhood == "" || adressNumber == "" || description == "" || !haveComplaint){
+    if(cep == " " || street == " " || neighborhood == " " || adressNumber == " " || description == " " || !haveComplaint){
         canCreate = false;
     }else{
         canCreate =true;
@@ -60,11 +68,14 @@ function createComplaint(){
     //TODO add image
 
     if(canCreate){
+        alert("Anote seu numero de protocolo : "+ protocol)
         post(url,data);
+        window.location.href = "./home.html";
     }else{
         alert("Verifique os dados e preenche todos os campos");
     }
-    
+
+    canCreate = true;
 }
 
 function userDataShow(){
