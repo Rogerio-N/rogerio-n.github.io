@@ -36,17 +36,19 @@ function createComplaint(){
     let description = document.getElementById("Complaint-description").value;
     adressNumber = parseInt(adressNumber);
 
-    //let protocol = getRndInteger(0,2000000).toString();
     let sendDate = new Date();
+    let endDate = new Date();
 
     let year = sendDate.getFullYear().toString();
     let month = (sendDate.getMonth()+1).toString();
     let day = sendDate.getDate().toString();
-    let code = sendDate.getTime().toString().toString().substr(0,4);// getRndInteger(0,999).toString();
+    let code = getRndInteger(0,999).toString();
 
+    let endMonth = (sendDate.getMonth()+1);
+    endDate.setMonth(endMonth);
     let protocol = year + month + day + "." + code;
 
-    console.log(protocol);
+    let currentUser = parseInt(sessionStorage.getItem("Id"));
 
     const data = {
         "protocol": protocol,
@@ -56,7 +58,9 @@ function createComplaint(){
         "numero": adressNumber,
         "endereco": street + ", "+  neighborhood,
         "dataEnvio": sendDate,
-        "cep":cep
+        "dataFim": endDate,
+        "cep":cep,
+        "user": currentUser
     }
 
     if(cep == " " || street == " " || neighborhood == " " || adressNumber == " " || description == " " || !haveComplaint){
