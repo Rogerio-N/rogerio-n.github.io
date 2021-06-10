@@ -1,16 +1,8 @@
 # rogerio-n.github.io
 
-This repository is focused for our college project.
+Esse é o repositório do projeto da faculdade Insted.
 
-We are using the technologies for front-end: 
+Esse projeto está relacionado a facilitação de denuncias de qualquer coisa que seja responsabilidade da prefeitura.
+No momento estamos focando na iluminação publica por conta do escopo, mas futuramente pretendemos inserir mais temas sobre.
 
-- HTML
-- CSS
-- JavaScript
-- Boostrap
-
-And we are thinking about using the following techs for back-end:
-
-- Spring
-- Node.Js
-- Firebase
+Para rodar nosso projeto é necessário tero o **npm** instalado
