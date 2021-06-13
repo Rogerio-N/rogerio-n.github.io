@@ -33,7 +33,8 @@ function updateData(){
             "password":newPassword
         }
         put(url,data);
-        window.location.href = "./home.html"
+        alert("Para as alterações terem efeito, por favor faça login novamente");
+        window.location.href = "./index.html"
     }else{
         alert("Algo deu errado com sua requisicao");
     }
