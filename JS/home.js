@@ -69,10 +69,8 @@ function complaintInsert(){
             qtdComplaint++;
    
         }
-
-            document.getElementById("Complaint-user-count").placeholder = qtdComplaint;
-            let complaintCounter = document.getElementById("Complaint-counter-text");
-            complaintCounter.innerHTML = qtdComplaint;
+            sessionStorage.setItem("QtdComplaint", qtdComplaint);
+            document.getElementById("Complaint-user-count").placeholder = sessionStorage.getItem("QtdComplaint");
         
     });
 

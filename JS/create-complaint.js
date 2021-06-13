@@ -91,6 +91,9 @@ function userDataShow(){
 
     document.getElementById("Name-cellphone").placeholder = userName;
     document.getElementById("Email-cellphone").placeholder = userEmail;
+
+    document.getElementById("Complaint-counter-desktop").placeholder = sessionStorage.getItem("QtdComplaint");
+    document.getElementById("Complaint-counter-cellphone").placeholder = sessionStorage.getItem("QtdComplaint");
 }
 
 userDataShow();
