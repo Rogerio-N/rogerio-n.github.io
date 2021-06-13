@@ -292,8 +292,6 @@ input::-webkit-inner-spin-button {
     background-color: #d1ad52;
 }
 
-
-
 #Protocol{
     margin: 40px 0px;
     background-color: #7A9AB8;
@@ -367,6 +365,7 @@ input::-webkit-inner-spin-button {
 }
 
 @media screen and (max-width:1200px){
+    
     #Grid-form{
         grid-template-columns: repeat(2,45%);
     }
@@ -383,7 +382,9 @@ input::-webkit-inner-spin-button {
         font-size: 15px;
     }
 
-
+    #image-send{
+        font-size: 12px;
+    }
 }
 
 @media screen and (max-width:870px) {
