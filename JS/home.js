@@ -71,6 +71,7 @@ function complaintInsert(){
         }
             sessionStorage.setItem("QtdComplaint", qtdComplaint);
             document.getElementById("Complaint-user-count").placeholder = sessionStorage.getItem("QtdComplaint");
+            document.getElementById("Complaint-counter-text").innerHTML = sessionStorage.getItem("QtdComplaint");
         
     });
 
