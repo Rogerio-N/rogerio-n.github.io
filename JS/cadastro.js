@@ -8,7 +8,7 @@ function post(url,data){
 
 function createUser(){
     event.preventDefault();
-    let url = "http://localhost:8080/users";
+    let url = "https://obras-publicas.herokuapp.com/users";
     let email = document.getElementById("emaill").value;
     let name = document.getElementById("namee").value;
     

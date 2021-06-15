@@ -19,7 +19,7 @@ function userDataShow(){
 userDataShow();
 
 function complaintInsert(){
-    let rawData = get("http://localhost:8080/complaint");
+    let rawData = get("https://obras-publicas.herokuapp.com/complaint");
     let allComplaint = JSON.parse(rawData);
 
     let table = document.getElementById("History-table");

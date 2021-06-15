@@ -12,7 +12,7 @@ function getRndInteger(min, max) {
 
 function createComplaint(){
     event.preventDefault();
-    let url = "http://localhost:8080/complaint"
+    let url = "https://obras-publicas.herokuapp.com/complaint"
 
     let canCreate = true;
     let haveComplaint = true;
