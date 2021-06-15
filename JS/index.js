@@ -21,7 +21,8 @@
             imgDiv.className = "imgDiv";
 
             let themeImg = document.createElement("img");
-            themeImg.src = "http://127.0.0.1:8887/"+element.photo;
+            //themeImg.src = "http://127.0.0.1:8887/"+element.photo;
+            themeImg.src = element.photo;
 
             let nameDiv = document.createElement("div");
             nameDiv.className = "nameDiv";
