@@ -20,7 +20,7 @@ function createComplaint(){
 
     switch(complaintType){
         case "Iluminação publica":
-            complaintType = 1;
+            complaintType = 2;
         break;
 
         default:
@@ -32,7 +32,7 @@ function createComplaint(){
     let cep = document.getElementById("CEP").value;
     let street = document.getElementById("Street").value;
     let neighborhood = document.getElementById("neighborhood").value;
-    let adressNumber = document.getElementById("input-number-adress").value;
+    let adressNumber = parseInt(document.getElementById("input-number-adress").value);
     let description = document.getElementById("Complaint-description").value;
     adressNumber = parseInt(adressNumber);
 
