@@ -1,7 +1,7 @@
 function post(url,data){
     let request = new XMLHttpRequest();
     request.open("POST",url,true);
-    request.setRequestHeader("Content-type", "application/json");
+    request.setRequestHeader("Content-type", "application/json","mime-type", "multipart/form-data");
     request.send(JSON.stringify(data));
     return request.responseText;
 }
@@ -48,6 +48,7 @@ function createComplaint(){
     endDate.setMonth(endMonth);
     let protocol = year + month + day + "." + code;
 
+    let imageUrl = document.getElementById("image-send").value;
     let currentUser = parseInt(sessionStorage.getItem("Id"));
 
     const data = {
@@ -60,7 +61,8 @@ function createComplaint(){
         "dataEnvio": sendDate,
         "dataFim": endDate,
         "cep":cep,
-        "user": currentUser
+        "user": currentUser,
+        "imageUrl":imageUrl
     }
 
     if(cep == " " || street == " " || neighborhood == " " || adressNumber == " " || description == " " || !haveComplaint){
@@ -68,9 +70,6 @@ function createComplaint(){
     }else{
         canCreate =true;
     }
-
-    //TODO add image
-
     if(canCreate){
         alert("Anote seu numero de protocolo : "+ protocol)
         post(url,data);
