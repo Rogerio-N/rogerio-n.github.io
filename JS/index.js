@@ -7,10 +7,11 @@
 
     function Runner(){
         
+        sessionStorage.setItem("isLoged",false);
         let rawData = get("https://obras-publicas.herokuapp.com/themes");
         let themes = JSON.parse(rawData);
 
-        let themeDisplay = document.getElementById("Theme-display")
+        let themeDisplay = document.getElementById("Theme-display");
 
         themes.forEach(element => {
             
@@ -91,6 +92,7 @@
         });
     
         if(canLogin){
+            sessionStorage.setItem("isLoged",true);
             window.location.href = "./home.html";
         }else{
             alert("Usuário não encontrado, reensira as informações");
