@@ -9,7 +9,7 @@ function put(url,data){
 function updateData(){
     event.preventDefault();
     let currentUserId = parseInt(sessionStorage.getItem("Id"));
-    let url = "https://obras-publicas.herokuapp.com/users/"+currentUserId;
+    let url = "http:localhost:8080/users/"+currentUserId;
 
     let newName = document.getElementById("namee").value;
     let newEmail = document.getElementById("emaill").value;

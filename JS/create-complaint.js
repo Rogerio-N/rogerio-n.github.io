@@ -6,13 +6,28 @@ function post(url,data){
     return request.responseText;
 }
 
+let base64String = "";
+  
+function imageUploaded() {
+    var file = document.querySelector('input[type=file]')['files'][0];
+  
+    var reader = new FileReader();
+      
+    reader.onload = function () {
+        base64String = reader.result.replace("data:", "").replace(/^.+,/, "");
+  
+        console.log(base64String);
+    }
+    reader.readAsDataURL(file);
+}
+
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
   }
 
 function createComplaint(){
     event.preventDefault();
-    let url = "https://obras-publicas.herokuapp.com/complaint"
+    let url = "http:localhost:8080/complaint"
 
     let canCreate = true;
     let haveComplaint = true;

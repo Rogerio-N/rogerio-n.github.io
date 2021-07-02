@@ -8,7 +8,7 @@
     function Runner(){
         
         sessionStorage.setItem("isLoged",false);
-        let rawData = get("https://obras-publicas.herokuapp.com/themes");
+        let rawData = get("http://localhost:8080/themes");
         let themes = JSON.parse(rawData);
 
         let themeDisplay = document.getElementById("Theme-display");
@@ -47,6 +47,7 @@
     
     function loginChecker(){
         event.preventDefault();
+        //let rawData = get("http://localhost:8080/users");
         let rawData = get("https://obras-publicas.herokuapp.com/users");
         let users = JSON.parse(rawData);
         

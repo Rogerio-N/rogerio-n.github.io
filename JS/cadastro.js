@@ -2,13 +2,14 @@ function post(url,data){
     let request = new XMLHttpRequest();
     request.open("POST",url,true);
     request.setRequestHeader("Content-type", "application/json");
+    request.setRequestHeader("permissions-policy","interest-cohort=()");
     request.send(JSON.stringify(data));
     return request.responseText;
 }
 
 function createUser(){
     event.preventDefault();
-    let url = "https://obras-publicas.herokuapp.com/users";
+    let url = "http://localhost:8080/users";
     let email = document.getElementById("emaill").value;
     let name = document.getElementById("namee").value;
     
