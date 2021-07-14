@@ -22,8 +22,8 @@
             imgDiv.className = "imgDiv";
 
             let themeImg = document.createElement("img");
-            //themeImg.src = "http://127.0.0.1:8887/"+element.photo;
-            themeImg.src = element.photo;
+            themeImg.src = "http://127.0.0.1:8887/"+element.photo;
+            //themeImg.src = element.photo;
 
             let nameDiv = document.createElement("div");
             nameDiv.className = "nameDiv";
@@ -47,8 +47,7 @@
     
     function loginChecker(){
         event.preventDefault();
-        //let rawData = get("http://localhost:8080/users");
-        let rawData = get("https://obras-publicas.herokuapp.com/users");
+        let rawData = get("http://localhost:8080/users");
         let users = JSON.parse(rawData);
         
         let currentUserMail = document.getElementById("desktop-email").value;
@@ -62,7 +61,7 @@
     
         users.forEach(element => {
 
-            //Verificar se o campo de email no deskto esta preenchido
+            //Verificar se o campo de email no desktop esta preenchido
             //Caso esteja vazio, usa-se o valor dos campos de celular
             //Caso esteja com alguma valor preenchido entra no else
             //E pega os dados dos campos do pc
