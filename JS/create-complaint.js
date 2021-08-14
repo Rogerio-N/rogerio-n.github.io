@@ -1,8 +1,22 @@
 function post(url,data){
     let request = new XMLHttpRequest();
     request.open("POST",url,true);
-    request.setRequestHeader("Content-type", "application/json","mime-type", "multipart/form-data");
+    request.setRequestHeader("Content-type", "application/json");
     request.send(JSON.stringify(data));
+    return request.responseText;
+}
+
+function postImgur(url,data,clientId){
+    let request = new XMLHttpRequest();
+    request.open("POST",url,true);
+    request.setRequestHeader("Content-type","application/json; charset=utf-8");
+    request.setRequestHeader("Authorization","Client-ID "+clientId);
+    request.send(JSON.stringify(data));
+    request.onloadend = function imgurResponseData(){
+        let imgurRequestData = JSON.parse(request.responseText);
+        let imageUrl = imgurRequestData.data.link;
+        sessionStorage.setItem("imgurLink",imageUrl);
+    }
     return request.responseText;
 }
 
@@ -15,8 +29,6 @@ function imageUploaded() {
       
     reader.onload = function () {
         base64String = reader.result.replace("data:", "").replace(/^.+,/, "");
-  
-        console.log(base64String);
     }
     reader.readAsDataURL(file);
 }
@@ -27,7 +39,7 @@ function getRndInteger(min, max) {
 
 function createComplaint(){
     event.preventDefault();
-    let url = "http:localhost:8080/complaint"
+    let url = "http://localhost:8080/complaint"
 
     let canCreate = true;
     let haveComplaint = true;
@@ -35,7 +47,7 @@ function createComplaint(){
 
     switch(complaintType){
         case "Iluminação publica":
-            complaintType = 2;
+            complaintType = 1;
         break;
 
         default:
@@ -63,7 +75,13 @@ function createComplaint(){
     endDate.setMonth(endMonth);
     let protocol = year + month + day + "." + code;
 
-    let imageUrl = document.getElementById("image-send").value;
+    const imgurData = {
+        "image": base64String,
+        "type": "base64"
+    }
+
+    postImgur("https://api.imgur.com/3/image",imgurData,"6938311787a8442");
+
     let currentUser = parseInt(sessionStorage.getItem("Id"));
 
     const data = {
@@ -77,7 +95,7 @@ function createComplaint(){
         "dataFim": endDate,
         "cep":cep,
         "user": currentUser,
-        "imageUrl":imageUrl
+        "imageUrl":sessionStorage.getItem("imgurLink")
     }
 
     if(cep == " " || street == " " || neighborhood == " " || adressNumber == " " || description == " " || !haveComplaint){
@@ -85,10 +103,16 @@ function createComplaint(){
     }else{
         canCreate =true;
     }
+
+    function redirect(screenName){
+        alert('Você será redirecionado para página principal');
+        window.location.href = "./"+screenName+".html";
+    }
+
     if(canCreate){
-        alert("Anote seu numero de protocolo : "+ protocol)
+        alert("Anote seu numero de protocolo : "+ protocol);
         post(url,data);
-        window.location.href = "./home.html";
+        //setTimeout(redirect("home"),5000);
     }else{
         alert("Verifique os dados e preenche todos os campos");
     }

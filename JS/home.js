@@ -19,7 +19,7 @@ function userDataShow(){
 userDataShow();
 
 function complaintInsert(){
-    let rawData = get("http:localhost:8080/complaint");
+    let rawData = get("http://localhost:8080/complaint");
     let allComplaint = JSON.parse(rawData);
 
     let table = document.getElementById("History-table");
@@ -86,7 +86,7 @@ complaintInsert();
 function searchComplaint(){
     let currentComplaintProtocol = document.getElementById("Protocol-text-inpt").value;
 
-    let rawData = get("http:localhost:8080/complaint/protocolSearch?protocol="+currentComplaintProtocol);
+    let rawData = get("http://localhost:8080/complaint/protocolSearch?protocol="+currentComplaintProtocol);
     let Complaint = JSON.parse(rawData);
 
     if(Complaint.length!=0){
