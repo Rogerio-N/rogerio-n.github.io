@@ -3,6 +3,9 @@ function post(url,data){
     request.open("POST",url,true);
     request.setRequestHeader("Content-type", "application/json");
     request.send(JSON.stringify(data));
+    request.onloadend = function redirect(){
+        window.location.href = "./home.html";
+    };
     return request.responseText;
 }
 
@@ -33,17 +36,14 @@ function imageUploaded() {
     reader.readAsDataURL(file);
 }
 
-function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
-  }
-
 function createComplaint(){
     event.preventDefault();
-    let url = "http://localhost:8080/complaint"
+    let url = "http://localhost:8080/api/v2/complaint"
 
     let canCreate = true;
     let haveComplaint = true;
     let complaintType = document.getElementById("Type-selector").value;
+    let loader = document.getElementById("load-handler");
 
     switch(complaintType){
         case "Iluminação publica":
@@ -66,14 +66,8 @@ function createComplaint(){
     let sendDate = new Date();
     let endDate = new Date();
 
-    let year = sendDate.getFullYear().toString();
-    let month = (sendDate.getMonth()+1).toString();
-    let day = sendDate.getDate().toString();
-    let code = getRndInteger(0,999).toString();
-
     let endMonth = (sendDate.getMonth()+1);
     endDate.setMonth(endMonth);
-    let protocol = year + month + day + "." + code;
 
     const imgurData = {
         "image": base64String,
@@ -85,7 +79,6 @@ function createComplaint(){
     let currentUser = parseInt(sessionStorage.getItem("Id"));
 
     const data = {
-        "protocol": protocol,
         "themes": complaintType,
         "status": "Aguardando resposta",
         "descricao": description,
@@ -104,15 +97,9 @@ function createComplaint(){
         canCreate =true;
     }
 
-    function redirect(screenName){
-        alert('Você será redirecionado para página principal');
-        window.location.href = "./"+screenName+".html";
-    }
-
     if(canCreate){
-        alert("Anote seu numero de protocolo : "+ protocol);
+        loader.style.display = "block";
         post(url,data);
-        //setTimeout(redirect("home"),5000);
     }else{
         alert("Verifique os dados e preenche todos os campos");
     }

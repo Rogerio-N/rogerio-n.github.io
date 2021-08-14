@@ -3,13 +3,17 @@ function put(url,data){
     request.open("PUT",url,true);
     request.setRequestHeader("Content-type", "application/json");
     request.send(JSON.stringify(data));
+    request.onloadend = function redirect(){
+        alert("Para as alterações terem efeito, por favor faça login novamente");
+        window.location.href = "./index.html";
+    }
     return request.responseText;
 }
 
 function updateData(){
     event.preventDefault();
     let currentUserId = parseInt(sessionStorage.getItem("Id"));
-    let url = "http:localhost:8080/users/"+currentUserId;
+    let url = "http://localhost:8080/api/v2/users/"+currentUserId;
 
     let newName = document.getElementById("namee").value;
     let newEmail = document.getElementById("emaill").value;
@@ -17,11 +21,12 @@ function updateData(){
     let password = document.getElementById("senhaa").value;
     let confPassword = document.getElementById("confsenhaa").value;
 
+    let load = document.getElementById('load-handler');
+
     var canCreate = false;
     var newPassword = "";
 
     if(password == confPassword){
-        console.log("Aqui")
         canCreate = true;
         newPassword = confPassword;
     }
@@ -32,9 +37,8 @@ function updateData(){
             "email":newEmail,
             "password":newPassword
         }
+        load.style.display = "block";
         put(url,data);
-        alert("Para as alterações terem efeito, por favor faça login novamente");
-        window.location.href = "./index.html"
     }else{
         alert("Algo deu errado com sua requisicao");
     }

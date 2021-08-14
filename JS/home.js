@@ -19,7 +19,7 @@ function userDataShow(){
 userDataShow();
 
 function complaintInsert(){
-    let rawData = get("http://localhost:8080/complaint");
+    let rawData = get("http://localhost:8080/api/v2/complaint");
     let allComplaint = JSON.parse(rawData);
 
     let table = document.getElementById("History-table");
@@ -44,7 +44,7 @@ function complaintInsert(){
     
     
             let protocol = document.createElement("td");
-            protocol.innerHTML = element.protocol;
+            protocol.innerHTML = element.id;
     
             let org = document.createElement("td");
             org.innerHTML = "SISEP"
@@ -85,8 +85,11 @@ complaintInsert();
 
 function searchComplaint(){
     let currentComplaintProtocol = document.getElementById("Protocol-text-inpt").value;
-
-    let rawData = get("http://localhost:8080/complaint/protocolSearch?protocol="+currentComplaintProtocol);
+    if(currentComplaintProtocol.trim() == ""){
+        return alert('Preencha o campo para realizar a busca')
+    }
+    let url = "http://localhost:8080/api/v2/complaint/find/?id="+currentComplaintProtocol;
+    let rawData = get(url);
     let Complaint = JSON.parse(rawData);
 
     if(Complaint.length!=0){
@@ -101,24 +104,22 @@ function searchComplaint(){
             
                 let row = document.createElement("tr");
                 row.className = "currentComplaint";
-    
                 let dateSend = document.createElement("td");
-                let dataSendPrep = new Date(Complaint[0].dataEnvio);
+                let dataSendPrep = new Date(Complaint.dataEnvio);
                 let dataSendDay = dataSendPrep.getDate().toString();
                 let dataSendMonth = dataSendPrep.getMonth().toString();
                 let dataSendYear = dataSendPrep.getFullYear().toString();
                 let fullSendDate = dataSendDay+"/"+dataSendMonth+"/"+dataSendYear;
                 dateSend.innerHTML = fullSendDate;
-        
-        
+
                 let protocol = document.createElement("td");
-                protocol.innerHTML = Complaint[0].protocol;
+                protocol.innerHTML = Complaint.id;
         
                 let org = document.createElement("td");
                 org.innerHTML = "SISEP"
         
                 let dateEnd = document.createElement("td");
-                let dataEndPrep = new Date(Complaint[0].dataFim);
+                let dataEndPrep = new Date(Complaint.dataFim);
                 let dataEndDay = dataEndPrep.getDate().toString();
                 let dataEndMonth = dataEndPrep.getMonth().toString();
                 let dataEndYear = dataEndPrep.getFullYear().toString();
@@ -126,7 +127,7 @@ function searchComplaint(){
                 dateEnd.innerHTML = fullEndDate;
         
                 let status = document.createElement("td");
-                status.innerHTML = Complaint[0].status;
+                status.innerHTML = Complaint.status;
         
                 row.appendChild(dateSend);
                 row.appendChild(protocol);
@@ -136,7 +137,7 @@ function searchComplaint(){
         
                 table.appendChild(row);
 
-
+                
     }else{
         alert("Nenhuma denuncia encontrada com esse numero de protocolo");
     }

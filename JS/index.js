@@ -8,7 +8,7 @@
     function Runner(){
         
         sessionStorage.setItem("isLoged",false);
-        let rawData = get("http://localhost:8080/themes");
+        let rawData = get("http://localhost:8080/api/v2/themes");
         let themes = JSON.parse(rawData);
 
         let themeDisplay = document.getElementById("Theme-display");
@@ -22,7 +22,7 @@
             imgDiv.className = "imgDiv";
 
             let themeImg = document.createElement("img");
-            themeImg.src = "http://127.0.0.1:8887/"+element.photo;
+            themeImg.src = element.photo;
             //themeImg.src = element.photo;
 
             let nameDiv = document.createElement("div");
@@ -47,7 +47,7 @@
     
     function loginChecker(){
         event.preventDefault();
-        let rawData = get("http://localhost:8080/users");
+        let rawData = get("http://localhost:8080/api/v2/users");
         let users = JSON.parse(rawData);
         
         let currentUserMail = document.getElementById("desktop-email").value;
