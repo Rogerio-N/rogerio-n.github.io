@@ -12,7 +12,7 @@ function put(url,data){
 
 function updateData(){
     event.preventDefault();
-    let currentUserId = parseInt(sessionStorage.getItem("Id"));
+    let currentUserId = sessionStorage.getItem("Id");
     let url = "http://localhost:8080/api/v2/users/"+currentUserId;
 
     let newName = document.getElementById("namee").value;
@@ -24,18 +24,16 @@ function updateData(){
     let load = document.getElementById('load-handler');
 
     var canCreate = false;
-    var newPassword = "";
 
     if(password == confPassword){
         canCreate = true;
-        newPassword = confPassword;
     }
 
     if (canCreate){
         const data = {
             "name":newName,
             "email":newEmail,
-            "password":newPassword
+            "password":password
         }
         load.style.display = "block";
         put(url,data);

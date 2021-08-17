@@ -1,13 +1,5 @@
-function post(url,data){
-    let request = new XMLHttpRequest();
-    request.open("POST",url,true);
-    request.setRequestHeader("Content-type", "application/json");
-    request.setRequestHeader("permissions-policy","interest-cohort=()");
-    request.send(JSON.stringify(data));
-    request.onloadend = function redirect(){
-        window.location.href = "./index.html";
-    }
-    return request.responseText;
+function redirect(){
+    window.location.href = "./index.html";
 }
 
 function createUser(){
@@ -33,12 +25,10 @@ function createUser(){
     }else{
         dados={
             "email":email,
-            "password":password,
-            "name":name
-            
+            "password": password,
+            "name":name 
         }
         load.style.display = "block";
         post(url,dados);
-    }    
-
+    }
 }
