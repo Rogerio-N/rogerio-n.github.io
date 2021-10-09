@@ -4,7 +4,7 @@ function redirect(){
 
 function createUser(){
     event.preventDefault();
-    let url = "http://localhost:8080/api/v2/users";
+    let url = `${API_URL}/users`;
     let email = document.getElementById("emaill").value;
     let name = document.getElementById("namee").value;
     var load = document.getElementById("load-handler");
@@ -29,6 +29,6 @@ function createUser(){
             "name":name 
         }
         load.style.display = "block";
-        post(url,dados);
+        post(url,dados,token);
     }
 }
