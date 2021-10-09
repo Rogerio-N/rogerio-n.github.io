@@ -1,19 +1,21 @@
-let userData = JSON.parse(sessionStorage.getItem("User"));
+function getUserData(){
+    let userEmail = parseJwt(token).sub;
+    return JSON.parse(get(`${API_URL}/users/find?email=${userEmail}`,token));
+}
 
 function userDataShow(){
     
-    document.getElementById("Name-desktop").placeholder = userData.name;
-    document.getElementById("Email-desktop").placeholder = userData.email;
+    document.getElementById("Name-desktop").placeholder = getUserData().name;
+    document.getElementById("Email-desktop").placeholder = getUserData().email;
 
-    document.getElementById("Name-cellphone").placeholder =  userData.name;
-    document.getElementById("Email-cellphone").placeholder = userData.email;
+    document.getElementById("Name-cellphone").placeholder =  getUserData().name;
+    document.getElementById("Email-cellphone").placeholder = getUserData().email;
 }
 
 userDataShow();
 
 function complaintInsert(){
-    let currentUser = userData.id;
-    let rawData = get("http://localhost:8080/api/v2/complaint/find/userComplaint?user_id="+currentUser);
+    let rawData = get("http://localhost:8080/api/v2/complaint/find/userComplaint?user_id="+getUserData().id,token);
     let allUserComplaint = JSON.parse(rawData);
 
     let table = document.getElementById("History-table");
@@ -57,12 +59,15 @@ function complaintInsert(){
 
         sessionStorage.setItem("QtdComplaint", qtdComplaint);
         
-        
     });
-    document.getElementById("Complaint-user-count").placeholder = sessionStorage.getItem("QtdComplaint");
-    document.getElementById("Complaint-counter-text").innerHTML = sessionStorage.getItem("QtdComplaint");
-    document.getElementById("Complaint-Mobile-counter").placeholder = sessionStorage.getItem("QtdComplaint");
-    
+    let complaintCounter = sessionStorage.getItem("QtdComplaint")
+    if(complaintCounter == null){
+        return
+    }else{
+        document.getElementById("Complaint-user-count").placeholder = sessionStorage.getItem("QtdComplaint");
+        document.getElementById("Complaint-counter-text").innerHTML = sessionStorage.getItem("QtdComplaint");
+        document.getElementById("Complaint-Mobile-counter").placeholder = sessionStorage.getItem("QtdComplaint");
+    }
 }
 
 complaintInsert();
@@ -85,9 +90,8 @@ function searchComplaint(){
     let currentComplaintProtocol = document.getElementById("Protocol-text-inpt").value;
     //Campo vazio
     if(currentComplaintProtocol.trim() == ""){return alert('Preencha o campo para realizar a busca')};
-    let params = `?user_id=${sessionStorage.getItem("Id")}&complaint_id=${currentComplaintProtocol}`;
-    let url = "http://localhost:8080/api/v2/complaint/find/userSpecificComplaint"+params;
-    let rawData = get(url);
+    let params = `?user_id=${getUserData().id}&complaint_id=${currentComplaintProtocol}`;
+    let rawData = get(`${API_URL}/complaint/find/userSpecificComplaint${params}`,token);
     //Nenhuma denuncia
     if (rawData.length==0){return alert("Nenhuma denuncia foi encontrada com esse numero de protocolo")}
     let Complaint = JSON.parse(rawData);

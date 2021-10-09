@@ -1,7 +1,8 @@
-function put(url,data){
+function put(url,data,token){
     let request = new XMLHttpRequest();
     request.open("PUT",url,true);
     request.setRequestHeader("Content-type", "application/json");
+    request.setRequestHeader("Authorization",`Bearer ${token}`)
     request.send(JSON.stringify(data));
     request.onloadend = function redirect(){
         alert("Para as alterações terem efeito, por favor faça login novamente");
@@ -12,8 +13,6 @@ function put(url,data){
 
 function updateData(){
     event.preventDefault();
-    let currentUserId = sessionStorage.getItem("Id");
-    let url = "http://localhost:8080/api/v2/users/"+currentUserId;
 
     let newName = document.getElementById("namee").value;
     let newEmail = document.getElementById("emaill").value;
@@ -36,7 +35,7 @@ function updateData(){
             "password":password
         }
         load.style.display = "block";
-        put(url,data);
+        put(`${API_URL}/users/${getUserData().id}`,data,token);
     }else{
         alert("Algo deu errado com sua requisicao");
     }
