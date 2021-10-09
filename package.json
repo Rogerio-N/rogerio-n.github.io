@@ -1,10 +1,11 @@
 {
-  "name": "page-pi",
+  "name": "page-pi-esm",
   "version": "1.0.0",
-  "description": "This repository is focused for our college project.",
+  "description": "Esse é o repositório do projeto da faculdade Insted.",
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/Rogerio-N/rogerio-n.github.io/issues"
   },
-  "homepage": "https://github.com/Rogerio-N/rogerio-n.github.io#readme"
+  "homepage": "https://github.com/Rogerio-N/rogerio-n.github.io#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "browserify": "^17.0.0",
+    "express": "^4.17.1",
+    "password-hash": "^1.2.2"
+  }
 }

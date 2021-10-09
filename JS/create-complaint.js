@@ -1,95 +1,94 @@
-function post(url,data){
-    let request = new XMLHttpRequest();
-    request.open("POST",url,true);
-    request.setRequestHeader("Content-type", "application/json","mime-type", "multipart/form-data");
-    request.send(JSON.stringify(data));
-    return request.responseText;
-}
+var imgurResponse;
 
-function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
-  }
+let base64String = "";
+
+function imageUploaded() {
+    var file = document.querySelector('input[type=file]')['files'][0];
+    
+    var reader = new FileReader();
+    
+    reader.onload = function () {
+        base64String = reader.result.replace("data:", "").replace(/^.+,/, "");
+    }
+    reader.readAsDataURL(file);
+}
 
 function createComplaint(){
     event.preventDefault();
-    let url = "https://obras-publicas.herokuapp.com/complaint"
-
+    
     let canCreate = true;
     let haveComplaint = true;
     let complaintType = document.getElementById("Type-selector").value;
-
+    let loader = document.getElementById("load-handler");
+    
     switch(complaintType){
         case "Iluminação publica":
-            complaintType = 2;
+            complaintType = 1;
         break;
-
+            
         default:
             alert("Insira o tipo de denuncia novamente");
             haveComplaint = false;
         break;
     }
-
+            
     let cep = document.getElementById("CEP").value;
     let street = document.getElementById("Street").value;
     let neighborhood = document.getElementById("neighborhood").value;
-    let adressNumber = parseInt(document.getElementById("input-number-adress").value);
+    let addressNumber = parseInt(document.getElementById("input-number-adress").value);
     let description = document.getElementById("Complaint-description").value;
-    adressNumber = parseInt(adressNumber);
-
+    addressNumber = parseInt(addressNumber);
+    
     let sendDate = new Date();
     let endDate = new Date();
-
-    let year = sendDate.getFullYear().toString();
-    let month = (sendDate.getMonth()+1).toString();
-    let day = sendDate.getDate().toString();
-    let code = getRndInteger(0,999).toString();
-
+    
     let endMonth = (sendDate.getMonth()+1);
     endDate.setMonth(endMonth);
-    let protocol = year + month + day + "." + code;
-
-    let imageUrl = document.getElementById("image-send").value;
+    
+    const imgurData = {
+        "image": base64String,
+        "type": "base64"
+    }
+    loader.style.display = "block";
+    postImgur("https://api.imgur.com/3/image",imgurData,"6938311787a8442");
+    let imgLink = imgurResponse.data.link
     let currentUser = parseInt(sessionStorage.getItem("Id"));
-
+    
     const data = {
-        "protocol": protocol,
         "themes": complaintType,
         "status": "Aguardando resposta",
         "descricao": description,
-        "numero": adressNumber,
-        "endereco": street + ", "+  neighborhood,
+        "numero": addressNumber,
+        "endereco": `${street}, ${neighborhood}`,
         "dataEnvio": sendDate,
         "dataFim": endDate,
         "cep":cep,
         "user": currentUser,
-        "imageUrl":imageUrl
+        "imageUrl": imgLink
     }
-
-    if(cep == " " || street == " " || neighborhood == " " || adressNumber == " " || description == " " || !haveComplaint){
+    
+    if(cep == " " || street == " " || neighborhood == " " || addressNumber == " " || description == " " || !haveComplaint){
         canCreate = false;
     }else{
         canCreate =true;
     }
+    
     if(canCreate){
-        alert("Anote seu numero de protocolo : "+ protocol)
-        post(url,data);
+        post(`${API_URL}/complaint`,data);
         window.location.href = "./home.html";
     }else{
         alert("Verifique os dados e preenche todos os campos");
     }
-
+    
     canCreate = true;
-}
-
+    }  
+        
 function userDataShow(){
-    let userName = sessionStorage.getItem("Name");
-    let userEmail = sessionStorage.getItem("Email");
+    document.getElementById("Name-desktop").placeholder = getUserData().name;
+    document.getElementById("Email-desktop").placeholder = getUserData().email;
 
-    document.getElementById("Name-desktop").placeholder = userName;
-    document.getElementById("Email-desktop").placeholder = userEmail;
-
-    document.getElementById("Name-cellphone").placeholder = userName;
-    document.getElementById("Email-cellphone").placeholder = userEmail;
+    document.getElementById("Name-cellphone").placeholder =  getUserData().name;
+    document.getElementById("Email-cellphone").placeholder = getUserData().email;
 
     document.getElementById("Complaint-counter-desktop").placeholder = sessionStorage.getItem("QtdComplaint");
     document.getElementById("Complaint-counter-cellphone").placeholder = sessionStorage.getItem("QtdComplaint");

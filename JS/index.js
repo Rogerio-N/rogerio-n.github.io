@@ -1,19 +1,12 @@
-    function get(url){
-        let request = new XMLHttpRequest();
-        request.open("GET",url,false);
-        request.send();
-        return request.responseText;    
-    };
-
     function Runner(){
         
         sessionStorage.setItem("isLoged",false);
-        let rawData = get("https://obras-publicas.herokuapp.com/themes");
+        let rawData = getThemes("http://localhost:8080/api/v2/themes");
         let themes = JSON.parse(rawData);
 
         let themeDisplay = document.getElementById("Theme-display");
 
-        themes.forEach(element => {
+        themes.forEach(theme => {
             
             let themeDiv = document.createElement("div");
             themeDiv.className = "Theme";
@@ -22,14 +15,13 @@
             imgDiv.className = "imgDiv";
 
             let themeImg = document.createElement("img");
-            //themeImg.src = "http://127.0.0.1:8887/"+element.photo;
-            themeImg.src = element.photo;
+            themeImg.src = theme.photo;
 
             let nameDiv = document.createElement("div");
             nameDiv.className = "nameDiv";
 
             let themeName = document.createElement("h3");
-            themeName.innerHTML = element.name;
+            themeName.innerHTML = theme.name;
 
             imgDiv.appendChild(themeImg);
             nameDiv.appendChild(themeName);
@@ -47,55 +39,23 @@
     
     function loginChecker(){
         event.preventDefault();
-        let rawData = get("https://obras-publicas.herokuapp.com/users");
-        let users = JSON.parse(rawData);
         
-        let currentUserMail = document.getElementById("desktop-email").value;
-        let currentUserPassword = document.getElementById("desktop-password").value;
-
-        let currentUserMailCell = document.getElementById("desktop-email").value;
-        let currentUserPasswordCell = document.getElementById("desktop-password").value;
-        
-    
-        let canLogin = false;
-    
-        users.forEach(element => {
-
-            //Verificar se o campo de email no deskto esta preenchido
-            //Caso esteja vazio, usa-se o valor dos campos de celular
-            //Caso esteja com alguma valor preenchido entra no else
-            //E pega os dados dos campos do pc
-            if(currentUserMail == " " || currentUserPassword== " "){
-
-                if(currentUserMailCell == element.email && currentUserPasswordCell == element.password){
-
-                    sessionStorage.setItem("Name",element.name);
-                    sessionStorage.setItem("Email",element.email);
-                    sessionStorage.setItem("Id",element.id);
-
-                    canLogin = true;
-                }
-
-            }else{
-                if(currentUserMail == element.email && currentUserPassword == element.password){
-
-                    sessionStorage.setItem("Name",element.name);
-                    sessionStorage.setItem("Email",element.email);
-                    sessionStorage.setItem("Id",element.id);
-
-                    canLogin = true;
-                }   
-            }
-
-
-            
-        });
-    
-        if(canLogin){
-            sessionStorage.setItem("isLoged",true);
-            window.location.href = "./home.html";
-        }else{
-            alert("Usuário não encontrado, reensira as informações");
+        let currentUserMail = document.getElementById("desktop-email").value || document.getElementById("cellphone-email").value;
+        let currentUserPassword = document.getElementById("desktop-password").value || document.getElementById("cellphone-password").value;
+        let data = {
+            "email": currentUserMail,
+            "password": currentUserPassword
         }
-    
+        let token = login("http://localhost:8080/login",data,"./home.html");
+        if(token.length==0){return alert("Usuário não encontrado, insira novamente as informações")}
+        console.log(parseJwt(token))
+        sessionStorage.setItem("Token",token)
+        /*
+        sessionStorage.setItem('Id',user.id)
+        sessionStorage.setItem('Name',user.name)
+        sessionStorage.setItem('Email',user.email)
+        sessionStorage.setItem("isLoged",true);
+        redirect("./home.html");
+        */
+       
     };

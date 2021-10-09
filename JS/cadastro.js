@@ -1,16 +1,13 @@
-function post(url,data){
-    let request = new XMLHttpRequest();
-    request.open("POST",url,true);
-    request.setRequestHeader("Content-type", "application/json");
-    request.send(JSON.stringify(data));
-    return request.responseText;
+function redirect(){
+    window.location.href = "./index.html";
 }
 
 function createUser(){
     event.preventDefault();
-    let url = "https://obras-publicas.herokuapp.com/users";
+    let url = `${API_URL}/users`;
     let email = document.getElementById("emaill").value;
     let name = document.getElementById("namee").value;
+    var load = document.getElementById("load-handler");
     
     let password = document.getElementById("senhaa").value;
     let repeatPassword = document.getElementById("confsenhaa").value;
@@ -28,14 +25,10 @@ function createUser(){
     }else{
         dados={
             "email":email,
-            "password":password,
-            "name":name
-            
+            "password": password,
+            "name":name 
         }
-    
-        post(url,dados);
-    
-        window.location.href = "./index.html";
-    }    
-
+        load.style.display = "block";
+        post(url,dados,token);
+    }
 }
