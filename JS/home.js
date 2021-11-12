@@ -1,3 +1,5 @@
+let searchAttempts = 0;
+
 function getUserData(){
     let userEmail = parseJwt(token).sub;
     return JSON.parse(get(`${API_URL}/users/find?email=${userEmail}`,token));
@@ -87,9 +89,12 @@ function cleanQuery(){
 }
 
 function searchComplaint(){
+    
     let currentComplaintProtocol = document.getElementById("Protocol-text-inpt").value;
     //Campo vazio
     if(currentComplaintProtocol.trim() == ""){return alert('Preencha o campo para realizar a busca')};
+    waitSearch(searchAttempts,4);
+    searchAttempts++;
     let params = `?user_id=${getUserData().id}&complaint_id=${currentComplaintProtocol}`;
     let rawData = get(`${API_URL}/complaint/find/userSpecificComplaint${params}`,token);
     //Nenhuma denuncia
@@ -131,5 +136,4 @@ function searchComplaint(){
     row.appendChild(status);
 
     table.appendChild(row);
-
 }
