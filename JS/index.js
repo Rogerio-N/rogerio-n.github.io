@@ -4,7 +4,7 @@ let canLogin = true;
 function Runner(){
     
     sessionStorage.setItem("isLoged",false);
-    let rawData = getThemes("http://localhost:8080/api/v2/themes");
+    let rawData = getThemes(`${API_URL}/themes`);
     let themes = JSON.parse(rawData);
 
     let themeDisplay = document.getElementById("Theme-display");
@@ -51,7 +51,7 @@ function loginChecker(){
         "password": currentUserPassword
     }
 
-    let token = login("http://localhost:8080/login",data);
+    let token = login(`${API_URL}/login`,data);
     if(token.length==0){
         loginAttempts++;
         return alert("Usuário não encontrado, insira novamente as informações");
