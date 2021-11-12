@@ -51,13 +51,14 @@ function loginChecker(){
         "password": currentUserPassword
     }
 
-    let token = login(`${API_URL}/login`,data);
-    if(token.length==0){
+    let user = login(`https://obras-publicas.herokuapp.com/login`,data);
+    console.log(user)
+    if(user.length==0){
         loginAttempts++;
         return alert("Usuário não encontrado, insira novamente as informações");
     }
     redirect("./home.html");
-    sessionStorage.setItem("Token",token)
+    sessionStorage.setItem("Token",user)
     sessionStorage.setItem("isLoged",true)
     waitSearch(loginAttempts, 4)
     loginAttempts ++;
