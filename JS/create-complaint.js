@@ -50,11 +50,12 @@ function createComplaint(){
         "type": "base64"
     }
     loader.style.display = "block";
-    postImgur("https://api.imgur.com/3/image",imgurData,"6938311787a8442");
+    imgurResponse = postImgur("https://api.imgur.com/3/image",imgurData,"6938311787a8442");
+    imgurResponse = JSON.parse(imgurResponse)
+    console.log("ImgurLink "+ imgurResponse.data.link)
     let imgLink = imgurResponse.data.link
-    let currentUser = parseInt(sessionStorage.getItem("Id"));
-    
-    const data = {
+    let currentUser = getUserData().id;
+    const complaintData = {
         "themes": complaintType,
         "status": "Aguardando resposta",
         "descricao": description,
@@ -67,14 +68,17 @@ function createComplaint(){
         "imageUrl": imgLink
     }
     
+    console.log(complaintData)
+
     if(cep == " " || street == " " || neighborhood == " " || addressNumber == " " || description == " " || !haveComplaint){
         canCreate = false;
+        console.log("If em branco")
     }else{
         canCreate =true;
     }
     
     if(canCreate){
-        post(`${API_URL}/complaint`,data);
+        sendComplaint(`${API_URL}/complaint`,complaintData);
         window.location.href = "./home.html";
     }else{
         alert("Verifique os dados e preenche todos os campos");

@@ -36,11 +36,21 @@ function post(url,data,path){
     return request.responseText;
 }
 
-function login(url,data,path){
+function sendComplaint(url,data,path){
+    let request = new XMLHttpRequest();
+    request.open("POST",url,false);
+    request.setRequestHeader("Content-type", "application/json");
+    request.setRequestHeader("permissions-policy","interest-cohort=()");
+    request.setRequestHeader("Authorization",`Bearer ${token}`);
+    request.send(JSON.stringify(data));
+    request.onloadend = redirect(path);
+    return request.responseText;
+}
+
+function login(url,data){
     let request = new XMLHttpRequest();
     request.open("POST",url,false);
     request.send(JSON.stringify(data));  
-    request.onloadend = redirect(path);
     return request.responseText;
 }
 
@@ -72,3 +82,27 @@ function get(url,token = ""){
     request.send();
     return request.responseText;
 };
+
+function buttonDisable(ButtonId, disable = true){
+    let button = document.getElementById(ButtonId);
+    button.disabled = disable
+}
+
+function sleep(ms){
+    const date = Date.now();
+    let currentDate = null;
+    do{
+        currentDate = Date.now();
+    }while(currentDate - date < ms)
+}
+
+function waitSearch(attemptVar,maxAttempts){
+
+    if(attemptVar >= maxAttempts){
+        alert("Você fez várias tentativas! Espere 5 segundos para tentar novamente")
+        attemptVar = 0;
+        sleep(5000);
+        return alert("Você já pode tentar novamente")
+    }
+
+}
