@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080/api/v2";
+const API_URL = "https://obras-publicas.herokuapp.com/api/v2";
 var token = sessionStorage.getItem("Token")
 
 if( (window.location.pathname != "/index.html" && window.location.pathname != "/cadastro.html") && token == null){
