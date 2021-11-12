@@ -17,7 +17,7 @@ function userDataShow(){
 userDataShow();
 
 function complaintInsert(){
-    let rawData = get(`${API_URL}/complaint/find/userComplaint?user_id=${getUserData()}.id`,token);
+    let rawData = get(`${API_URL}/complaint/find/userComplaint?user_id=${getUserData().id}`,token);
     let allUserComplaint = JSON.parse(rawData);
 
     let table = document.getElementById("History-table");
