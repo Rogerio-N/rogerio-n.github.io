@@ -98,10 +98,9 @@
                     <form onsubmit="createComplaint()">
                         <div id="Grid-form">
                             <div id="Complaint-type" >
-                                <p class="Complaint-label">Tipo de denuncia:</p>
+                                <p class="Complaint-label">Tema de denuncia:</p>
                                 <select id="Type-selector" name="Complaint-type-selector" required>
-                                    <Option>Escolha</Option>
-                                    <Option>Iluminação publica</Option>
+                                    <Option value=0>Escolha</Option>
                                 </select>
                             </div>
                             <div id="Adress-CEP">
@@ -126,7 +125,7 @@
                             </div>
                             <div id="Complaint-foto">
                                 <p class="Complaint-label">Imagem:</p>
-                                <input id="image-send" type="file" class="input-bar" onchange="imageUploaded()">
+                                <input id="image-send" type="file" required class="input-bar" onchange="imageUploaded()">
                             </div>
                             
                         </div>
@@ -137,6 +136,7 @@
                         </div>
                         
                         <div id="Send-complaint">
+                            <input type="button" id="Complaint-return" value="Voltar" onclick="back()">
                             <input type="submit" id="Complaint-submit-btn">
                         </div>
                     </form>

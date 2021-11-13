@@ -108,3 +108,8 @@ function waitSearch(attemptVar,maxAttempts){
     }
 
 }
+
+function back(){
+    event.preventDefault();
+    window.history.back()
+}
