@@ -1,4 +1,6 @@
-const API_URL = "https://obras-publicas.herokuapp.com/api/v2";
+//https://obras-publicas.herokuapp.com
+//http://localhost:8080
+const API_URL = "https://obras-publicas.herokuapp.com";
 var token = sessionStorage.getItem("Token")
 
 if( (window.location.pathname != "/index.html" && window.location.pathname != "/cadastro.html") && token == null){
@@ -12,7 +14,7 @@ function redirect(path = "./index.html"){
 
 function getUserData(){
     let userEmail = parseJwt(token).sub;
-    return JSON.parse(get(`${API_URL}/users/find?email=${userEmail}`,token));
+    return JSON.parse(get(`${API_URL}/api/v2/users/find?email=${userEmail}`,token));
 }
 
 function parseJwt(token){

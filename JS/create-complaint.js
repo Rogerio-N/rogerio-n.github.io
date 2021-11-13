@@ -78,7 +78,7 @@ function createComplaint(){
     }
     
     if(canCreate){
-        sendComplaint(`${API_URL}/complaint`,complaintData);
+        sendComplaint(`${API_URL}/api/v2/complaint`,complaintData);
         window.location.href = "./home.html";
     }else{
         alert("Verifique os dados e preenche todos os campos");

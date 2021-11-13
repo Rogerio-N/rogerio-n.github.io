@@ -35,7 +35,7 @@ function updateData(){
             "password":password
         }
         load.style.display = "block";
-        put(`${API_URL}/users/update/?id=${getUserData().id}`,data,token);
+        put(`${API_URL}/api/v2/users/update/?id=${getUserData().id}`,data,token);
     }else{
         alert("Algo deu errado com sua requisicao");
     }

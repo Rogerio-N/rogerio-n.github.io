@@ -4,7 +4,7 @@ function redirect(){
 
 function createUser(){
     event.preventDefault();
-    let url = `${API_URL}/users`;
+    let url = `${API_URL}/api/v2/users`;
     let email = document.getElementById("emaill").value;
     let name = document.getElementById("namee").value;
     var load = document.getElementById("load-handler");
