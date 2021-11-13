@@ -21,24 +21,14 @@ function updateData(){
     let confPassword = document.getElementById("confsenhaa").value;
 
     let load = document.getElementById('load-handler');
+    if(password != confPassword){return alert("As senhas não coincidem")}
 
-    var canCreate = false;
-
-    if(password == confPassword){
-        canCreate = true;
+    const data = {
+        "name":newName,
+        "email":newEmail,
+        "password":password
     }
-
-    if (canCreate){
-        const data = {
-            "name":newName,
-            "email":newEmail,
-            "password":password
-        }
-        load.style.display = "block";
-        put(`${API_URL}/api/v2/users/update/?id=${getUserData().id}`,data,token);
-    }else{
-        alert("Algo deu errado com sua requisicao");
-    }
-
+    load.style.display = "block";
+    put(`${API_URL}/api/v2/users/update/?id=${getUserData().id}`,data,token);
     
 }

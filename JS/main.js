@@ -108,3 +108,7 @@ function waitSearch(attemptVar,maxAttempts){
     }
 
 }
+
+function back(){
+    window.history.back()
+}
