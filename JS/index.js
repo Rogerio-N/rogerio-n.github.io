@@ -4,7 +4,7 @@ let canLogin = true;
 function Runner(){
     
     sessionStorage.setItem("isLoged",false);
-    let rawData = getThemes(`${API_URL}/themes`);
+    let rawData = getThemes(`${API_URL}/api/v2/themes`);
     let themes = JSON.parse(rawData);
 
     let themeDisplay = document.getElementById("Theme-display");

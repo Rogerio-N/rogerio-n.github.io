@@ -131,6 +131,21 @@ header{
     cursor: pointer;
 }
 
+#return-edit{
+    width: 20%;
+    height: 40px;
+    border-radius: 7px;
+    border: none;
+    background-color: #c4c4c4;
+    font-size: 25px;
+    
+}
+
+#return-edit:hover{
+    background-color: #8f8f8f;
+    cursor: pointer;
+}
+
 
 #namee{
     box-sizing: border-box;
@@ -292,6 +307,11 @@ header{
     }
 
     #bot{
+        width: 40%;
+        font-size: 17px;
+    }
+
+    #return-edit{
         width: 40%;
         font-size: 17px;
     }

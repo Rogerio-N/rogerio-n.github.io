@@ -169,7 +169,9 @@ input::-webkit-inner-spin-button {
 }
 
 #Send-complaint{
+    display: flex;
     text-align: center;
+    justify-content: space-evenly;
 }
 
 #Complaint-submit-btn{
@@ -186,6 +188,22 @@ input::-webkit-inner-spin-button {
 #Complaint-submit-btn:hover{
     cursor: pointer;
     background-color: #d1ad52;
+}
+
+#Complaint-return{
+    height: 40px;
+    border-radius: 7px;
+    border:none;
+    background-color: #c4c4c4;
+    font-size: 17px;
+    margin: 20px;
+    font-size: 20px;
+    width: 300px;
+}
+
+#Complaint-return:hover{
+    cursor: pointer;
+    background-color: #8f8f8f;
 }
 
 #Right-side-align{
@@ -503,6 +521,11 @@ input::-webkit-inner-spin-button {
     }
 
     #Complaint-submit-btn{
+        width: 40%;
+        font-size: 17px;
+    }
+
+    #Complaint-return{
         width: 40%;
         font-size: 17px;
     }

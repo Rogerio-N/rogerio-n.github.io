@@ -2,7 +2,7 @@ let searchAttempts = 0;
 
 function getUserData(){
     let userEmail = parseJwt(token).sub;
-    return JSON.parse(get(`${API_URL}/users/find?email=${userEmail}`,token));
+    return JSON.parse(get(`${API_URL}/api/v2/users/find?email=${userEmail}`,token));
 }
 
 function userDataShow(){
@@ -17,7 +17,7 @@ function userDataShow(){
 userDataShow();
 
 function complaintInsert(){
-    let rawData = get(`${API_URL}/complaint/find/userComplaint?user_id=${getUserData().id}`,token);
+    let rawData = get(`${API_URL}/api/v2/complaint/find/userComplaint?user_id=${getUserData().id}`,token);
     let allUserComplaint = JSON.parse(rawData);
 
     let table = document.getElementById("History-table");
@@ -96,7 +96,7 @@ function searchComplaint(){
     waitSearch(searchAttempts,4);
     searchAttempts++;
     let params = `?user_id=${getUserData().id}&complaint_id=${currentComplaintProtocol}`;
-    let rawData = get(`${API_URL}/complaint/find/userSpecificComplaint${params}`,token);
+    let rawData = get(`${API_URL}/api/v2/complaint/find/userSpecificComplaint${params}`,token);
     //Nenhuma denuncia
     if (rawData.length==0){return alert("Nenhuma denuncia foi encontrada com esse numero de protocolo")}
     let Complaint = JSON.parse(rawData);
