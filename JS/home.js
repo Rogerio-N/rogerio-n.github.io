@@ -1,17 +1,12 @@
 let searchAttempts = 0;
 
-function getUserData(){
-    let userEmail = parseJwt(token).sub;
-    return JSON.parse(get(`${API_URL}/api/v2/users/find?email=${userEmail}`,token));
-}
-
 function userDataShow(){
-    
-    document.getElementById("Name-desktop").placeholder = getUserData().name;
-    document.getElementById("Email-desktop").placeholder = getUserData().email;
+    const userData = getUserData();
+    document.getElementById("Name-desktop").placeholder =userData.name;
+    document.getElementById("Email-desktop").placeholder = userData.email;
 
-    document.getElementById("Name-cellphone").placeholder =  getUserData().name;
-    document.getElementById("Email-cellphone").placeholder = getUserData().email;
+    document.getElementById("Name-cellphone").placeholder =  userData.name;
+    document.getElementById("Email-cellphone").placeholder = userData.email;
 }
 
 userDataShow();
@@ -19,6 +14,7 @@ userDataShow();
 function complaintInsert(){
     let rawData = get(`${API_URL}/api/v2/complaint/find/userComplaint?user_id=${getUserData().id}`,token);
     let allUserComplaint = JSON.parse(rawData);
+    if(allUserComplaint.length == 0){return sessionStorage.setItem("QtdComplaint",0)}
 
     let table = document.getElementById("History-table");
     var qtdComplaint = 0;
@@ -62,14 +58,11 @@ function complaintInsert(){
         sessionStorage.setItem("QtdComplaint", qtdComplaint);
         
     });
-    let complaintCounter = sessionStorage.getItem("QtdComplaint")
-    if(complaintCounter == null){
-        return
-    }else{
-        document.getElementById("Complaint-user-count").placeholder = sessionStorage.getItem("QtdComplaint");
-        document.getElementById("Complaint-counter-text").innerHTML = sessionStorage.getItem("QtdComplaint");
-        document.getElementById("Complaint-Mobile-counter").placeholder = sessionStorage.getItem("QtdComplaint");
-    }
+    
+    document.getElementById("Complaint-user-count").placeholder = sessionStorage.getItem("QtdComplaint");
+    document.getElementById("Complaint-counter-text").innerHTML = sessionStorage.getItem("QtdComplaint");
+    document.getElementById("Complaint-Mobile-counter").placeholder = sessionStorage.getItem("QtdComplaint");
+    
 }
 
 complaintInsert();

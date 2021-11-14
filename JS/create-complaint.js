@@ -64,11 +64,12 @@ function createComplaint(){
     }  
         
 function userDataShow(){
-    document.getElementById("Name-desktop").placeholder = getUserData().name;
-    document.getElementById("Email-desktop").placeholder = getUserData().email;
+    const userData = getUserData();
+    document.getElementById("Name-desktop").placeholder = userData.name;
+    document.getElementById("Email-desktop").placeholder = userData.email;
 
-    document.getElementById("Name-cellphone").placeholder =  getUserData().name;
-    document.getElementById("Email-cellphone").placeholder = getUserData().email;
+    document.getElementById("Name-cellphone").placeholder =  userData.name;
+    document.getElementById("Email-cellphone").placeholder = userData.email;
 
     document.getElementById("Complaint-counter-desktop").placeholder = sessionStorage.getItem("QtdComplaint");
     document.getElementById("Complaint-counter-cellphone").placeholder = sessionStorage.getItem("QtdComplaint");
