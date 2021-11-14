@@ -32,7 +32,6 @@ function createComplaint(){
     
     let endMonth = (sendDate.getMonth()+1);
     endDate.setMonth(endMonth);
-    
     const imgurData = {
         "image": base64String,
         "type": "base64"
@@ -40,7 +39,10 @@ function createComplaint(){
     loader.style.display = "block";
     imgurResponse = postImgur("https://api.imgur.com/3/image",imgurData,"6938311787a8442");
     imgurResponse = JSON.parse(imgurResponse)
-    if(!imgurResponse.data.success){return alert("Algo deu errado, por favor tente novamente mais tarde")}
+    if(!imgurResponse.success){
+        alert("Algo deu errado, por favor tente novamente mais tarde")
+        return redirect("/home.html")
+    }
     let imgLink = imgurResponse.data.link
     let currentUser = getUserData().id;
     const complaintData = {

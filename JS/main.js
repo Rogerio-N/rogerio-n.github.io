@@ -62,11 +62,6 @@ function postImgur(url,data,clientId){
     request.setRequestHeader("Content-type","application/json; charset=utf-8");
     request.setRequestHeader("Authorization","Client-ID "+clientId);
     request.send(JSON.stringify(data));
-    request.onloadend = function imgurResponseData(){
-        let imgurRequestData = JSON.parse(request.responseText);
-        let imageUrl = imgurRequestData.data.link;
-        sessionStorage.setItem("imgurLink",imageUrl);
-    }
     return request.responseText;
 }
 
