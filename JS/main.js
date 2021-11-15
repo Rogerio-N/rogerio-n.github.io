@@ -1,4 +1,4 @@
-//https://obras-publicas.herokuapp.com
+//
 //http://localhost:8080
 const API_URL = "https://obras-publicas.herokuapp.com";
 var token = sessionStorage.getItem("Token")
@@ -97,7 +97,6 @@ function waitSearch(attemptVar,maxAttempts){
 
     if(attemptVar >= maxAttempts){
         alert("Você fez várias tentativas! Espere 5 segundos para tentar novamente")
-        attemptVar = 0;
         sleep(5000);
         return alert("Você já pode tentar novamente")
     }
