@@ -1,4 +1,4 @@
-//https://obras-publicas.herokuapp.com
+//
 //http://localhost:8080
 const API_URL = "https://obras-publicas.herokuapp.com";
 var token = sessionStorage.getItem("Token")
@@ -62,11 +62,6 @@ function postImgur(url,data,clientId){
     request.setRequestHeader("Content-type","application/json; charset=utf-8");
     request.setRequestHeader("Authorization","Client-ID "+clientId);
     request.send(JSON.stringify(data));
-    request.onloadend = function imgurResponseData(){
-        let imgurRequestData = JSON.parse(request.responseText);
-        let imageUrl = imgurRequestData.data.link;
-        sessionStorage.setItem("imgurLink",imageUrl);
-    }
     return request.responseText;
 }
 
@@ -102,7 +97,6 @@ function waitSearch(attemptVar,maxAttempts){
 
     if(attemptVar >= maxAttempts){
         alert("Você fez várias tentativas! Espere 5 segundos para tentar novamente")
-        attemptVar = 0;
         sleep(5000);
         return alert("Você já pode tentar novamente")
     }

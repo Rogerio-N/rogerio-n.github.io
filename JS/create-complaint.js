@@ -32,7 +32,6 @@ function createComplaint(){
     
     let endMonth = (sendDate.getMonth()+1);
     endDate.setMonth(endMonth);
-    
     const imgurData = {
         "image": base64String,
         "type": "base64"
@@ -40,7 +39,10 @@ function createComplaint(){
     loader.style.display = "block";
     imgurResponse = postImgur("https://api.imgur.com/3/image",imgurData,"6938311787a8442");
     imgurResponse = JSON.parse(imgurResponse)
-    if(!imgurResponse.data.success){return alert("Algo deu errado, por favor tente novamente mais tarde")}
+    if(!imgurResponse.success){
+        alert("Algo deu errado, por favor tente novamente mais tarde")
+        return redirect("/home.html")
+    }
     let imgLink = imgurResponse.data.link
     let currentUser = getUserData().id;
     const complaintData = {
@@ -62,11 +64,12 @@ function createComplaint(){
     }  
         
 function userDataShow(){
-    document.getElementById("Name-desktop").placeholder = getUserData().name;
-    document.getElementById("Email-desktop").placeholder = getUserData().email;
+    const userData = getUserData();
+    document.getElementById("Name-desktop").placeholder = userData.name;
+    document.getElementById("Email-desktop").placeholder = userData.email;
 
-    document.getElementById("Name-cellphone").placeholder =  getUserData().name;
-    document.getElementById("Email-cellphone").placeholder = getUserData().email;
+    document.getElementById("Name-cellphone").placeholder =  userData.name;
+    document.getElementById("Email-cellphone").placeholder = userData.email;
 
     document.getElementById("Complaint-counter-desktop").placeholder = sessionStorage.getItem("QtdComplaint");
     document.getElementById("Complaint-counter-cellphone").placeholder = sessionStorage.getItem("QtdComplaint");
