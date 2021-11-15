@@ -86,8 +86,9 @@ function searchComplaint(){
     let currentComplaintProtocol = document.getElementById("Protocol-text-inpt").value;
     //Campo vazio
     if(currentComplaintProtocol.trim() == ""){return alert('Preencha o campo para realizar a busca')};
-    waitSearch(searchAttempts,4);
+    waitSearch(searchAttempts,5);
     searchAttempts++;
+    if(searchAttempts>=6){return searchAttempts = 0;}
     let params = `?user_id=${getUserData().id}&complaint_id=${currentComplaintProtocol}`;
     let rawData = get(`${API_URL}/api/v2/complaint/find/userSpecificComplaint${params}`,token);
     //Nenhuma denuncia
